@@ -26,42 +26,40 @@ class App extends Component {
 		return (
 			<div className="App">
 				{/* <Navigation /> */}
-				<div className="container">
-					<Switch>
-						<Route exact path="/" component={Home} />
-						<Route
-							exact
-							path="/code/project/1"
-							component={CodeProject1}
-						/>
-						<Route
-							exact
-							path="/code/project/2"
-							component={CodeProject2}
-						/>
-						<Route
-							exact
-							path="/code/project/3"
-							component={CodeProject3}
-						/>
-						<Route
-							exact
-							path="/code/project/4"
-							component={CodeProject4}
-						/>
-						<Route
-							exact
-							path="/code/project/5"
-							component={CodeProject5}
-						/>
-						<Route
-							exact
-							path="/code/project/6"
-							component={CodeProject6}
-						/>
-						<Route component={NotFound} />
-					</Switch>
-				</div>
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route
+						exact
+						path="/code/project/1"
+						component={CodeProject1}
+					/>
+					<Route
+						exact
+						path="/code/project/2"
+						component={CodeProject2}
+					/>
+					<Route
+						exact
+						path="/code/project/3"
+						component={CodeProject3}
+					/>
+					<Route
+						exact
+						path="/code/project/4"
+						component={CodeProject4}
+					/>
+					<Route
+						exact
+						path="/code/project/5"
+						component={CodeProject5}
+					/>
+					<Route
+						exact
+						path="/code/project/6"
+						component={CodeProject6}
+					/>
+					<Route component={NotFound} />
+				</Switch>
 			</div>
 		);
 	}
