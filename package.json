@@ -1,25 +1,21 @@
 {
-  "name": "main-portfolio",
+  "name": "project-3-starter",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "license": "MIT",
+  "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "yarn run install:client && yarn run install:server",
+    "install:client": "cd client && yarn",
+    "install:server": "cd server && yarn",
+    "build": "cd client && yarn build",
+    "start": "node server/server.js",
+    "start:dev": "concurrently -n client,server \"yarn run client:dev\" \"yarn run server:dev\"",
+    "client:dev": "cd client && yarn start",
+    "server:dev": "cd server && yarn start:dev",
+    "heroku-postbuild": "yarn build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cassidygroenendaal/main-portfolio.git"
-  },
-  "keywords": [],
-  "author": "Cassidy Groenendaal",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cassidygroenendaal/main-portfolio/issues"
-  },
-  "homepage": "https://github.com/cassidygroenendaal/main-portfolio#readme",
-  "dependencies": {
-    "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
-    "morgan": "^1.9.1"
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.10"
   }
 }
