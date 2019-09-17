@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 // import API from '../../lib/API';
-import Navigation from '../../components/Navigation';
+// import Navigation from '../../components/Navigation';
 import Home from '../../pages/Home';
 import CodeProject1 from '../../pages/CodeProject1';
 import CodeProject2 from '../../pages/CodeProject2';
@@ -23,7 +23,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<Navigation />
+				{/* <Navigation /> */}
 				<div className="container">
 					<Switch>
 						<Route exact path="/" component={Home} />
