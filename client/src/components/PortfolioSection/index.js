@@ -4,7 +4,7 @@ import PortGrid from '../../components/PortfolioGrid';
 
 function PortfolioSection(props) {
 	return (
-		<div>
+		<div className="portfolio">
 			<h4>Portfolio Grid</h4>
 			<PortGrid />
 		</div>

@@ -4,7 +4,7 @@ import PortTile from '../../components/PortfolioTile';
 
 function PortfolioGrid(props) {
 	return (
-		<div className="row">
+		<div className="row no-gutters">
 			<PortTile title="Project 1" projectNum={1} />
 			<PortTile title="Project 2" projectNum={2} />
 			<PortTile title="Project 3" projectNum={3} />

@@ -5,9 +5,11 @@ import Contact from '../../components/Contact';
 
 function InfoSection(props) {
 	return (
-		<div className="row">
-			<About />
-			<Contact />
+		<div className="info-block">
+			<div className="row no-gutters">
+				<About />
+				<Contact />
+			</div>
 		</div>
 	);
 }

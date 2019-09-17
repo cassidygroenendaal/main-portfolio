@@ -2,7 +2,7 @@ import React from 'react';
 
 function About(props) {
 	return (
-		<div className="col-lg-6 col-12">
+		<div className="col-lg-6 col-12 about">
 			<h4>About</h4>
 		</div>
 	);
