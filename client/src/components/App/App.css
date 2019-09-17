@@ -36,8 +36,8 @@
 
 /********      Hero      ********/
 .hero {
-  background: lightsalmon;
-  height: 100vh;
+	background: lightsalmon;
+	height: 100vh;
 }
 
 /* .hero__contents {} */
@@ -57,10 +57,12 @@
 
 .about {
 	background: pink;
+	height: 40vh;
 }
 
 /********     Contact    ********/
 
 .contact {
 	background: lightblue;
+	height: 40vh;
 }
