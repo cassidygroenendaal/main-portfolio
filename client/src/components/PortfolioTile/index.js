@@ -4,10 +4,14 @@ import { Link } from 'react-router-dom';
 function PortfolioTile(props) {
 	return (
 		<div className="col-lg-4 col-md-6 col-12">
-			<Link to={`/code/project/${props.projectNum}`}>
-				<div className="card">
-					<h5 className="card-title">{props.title}</h5>
-					<p className="card-text">I am some card text</p>
+			<Link
+				to={`/code/project/${props.projectNum}`}
+				className="d-block port-item"
+			>
+				<div className="port-item__image" />
+				<div className="port-item__overlay d-flex flex-column justify-content-center align-items-center">
+					<h5 className="overlay__title">{props.title}</h5>
+					<p className="overlay__text">Read More...</p>
 				</div>
 			</Link>
 		</div>
