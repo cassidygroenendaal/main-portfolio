@@ -7,12 +7,10 @@ import InfoSection from '../../components/InfoSection';
 class HomePage extends Component {
 	render() {
 		return (
-			<div className="row">
-				<div className="col">
-					<HeroSection />
-					<PortfolioSection />
-					<InfoSection />
-				</div>
+			<div>
+				<HeroSection />
+				<PortfolioSection />
+				<InfoSection />
 			</div>
 		);
 	}
