@@ -44,28 +44,34 @@
 
 /******** Portfolio Grid ********/
 .portfolio {
-	background: lightgreen;
+	background: url("../../images/background.png");
 	padding: 5em 0;
 }
 
-/* .port-grid {} */
+.port-grid {
+	width: 80%;
+	margin: 0 auto;
+}
 
 .port-item {
 	position: relative;
 	overflow: hidden;
 	width: 100%;
-	height: 20em;
+	min-height: 20em;
+	height: 18vw;
+	/* height: 20em; */
 }
 
 .port-item__image {
-	background: rgb(255, 92, 92);
+	/* background: rgb(255, 92, 92); */
 	width: 100%;
 	height: 100%;
+	object-fit: cover;
 }
 
 .port-item__overlay {
 	position: absolute;
-	background: rgba(109, 243, 243, 0.493);
+	background: rgba(109, 243, 243, 0.7);
 	top: 150%;
 	right: 0;
 	bottom: 0;

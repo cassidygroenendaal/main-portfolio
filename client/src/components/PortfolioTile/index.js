@@ -8,7 +8,7 @@ function PortfolioTile(props) {
 				to={`/code/project/${props.projectNum}`}
 				className="d-block port-item"
 			>
-				<div className="port-item__image" />
+				<img className="port-item__image" src={props.imgURL} alt={props.title} />
 				<div className="port-item__overlay d-flex flex-column justify-content-center align-items-center">
 					<h5 className="overlay__title">{props.title}</h5>
 					<p className="overlay__text">Read More...</p>
