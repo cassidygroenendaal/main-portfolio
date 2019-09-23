@@ -1,3 +1,9 @@
+body {
+  overflow: hidden;
+  overflow-y: scroll;
+  /* force scroll to appear */
+}
+
 /********      App       ********/
 
 .App {
@@ -32,6 +38,11 @@
 	to {
 		transform: rotate(360deg);
 	}
+}
+
+/* helper class when showing content */
+.noscroll {
+	overflow: hidden;
 }
 
 /********      Hero      ********/
@@ -112,8 +123,6 @@
 	position: absolute;
 	width: 100%;
 	height: 100vh;
-	/* width: calc(100% + 5px); */
-	/* height: calc(100vh + 5px); */
 	/* z-index: 100; */
 	top: 0;
 	left: 0;
@@ -137,6 +146,19 @@
 	-webkit-transition: -webkit-transform 0.5s;
 	transition: transform 0.5s;
 }
+
+/* scroll helper wrap */
+/* .scroll-wrap {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+} */
+
 /* Portfolio Content */
 .port-content {
 	position: absolute;
@@ -174,6 +196,7 @@
 	-webkit-transition: opacity 0.6s;
 	transition: opacity 0.6s;
 }
+
 /* Portfolio Content Close Button */
 .close-button {
 	position: fixed;
@@ -212,7 +235,6 @@
 .info-block {
 	background: lightyellow;
 }
-
 /********      About     ********/
 .about {
 	background: pink;

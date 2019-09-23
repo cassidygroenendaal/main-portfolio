@@ -61,12 +61,10 @@ class PortfolioSection extends Component {
 		// -----------------------------------------------------
 		// -------------- Grab elements and sizes --------------
 		const main = document.querySelector('.main'),
-			portfolio = document.querySelector('.portfolio'),
-			portGrid = document.querySelector('.port-grid'),
-			infoBlock = document.querySelector('.info-block');
-		// infoBlock.style.display = 'none';
-		let tileOffsetTop = this.state.currentItem.closest('.port-tile')
-				.offsetTop + portfolio.offsetTop,
+			portfolio = document.querySelector('.portfolio');
+		let tileOffsetTop =
+				this.state.currentItem.closest('.port-tile').offsetTop +
+				portfolio.offsetTop,
 			currentRect = this.state.currentItem.getBoundingClientRect(),
 			mainRect = main.getBoundingClientRect();
 		// ---------------------------------------------------
@@ -101,15 +99,11 @@ class PortfolioSection extends Component {
 				// expands the placeholder
 				console.log(this.scrollY());
 				dummy.style.WebkitTransform =
-					'translate3d(0, ' +
-					(this.scrollY()) +
-					'px, 0px)';
+					'translate3d(0, ' + this.scrollY() + 'px, 0px)';
 				dummy.style.transform =
-					'translate3d(0, ' +
-					(this.scrollY()) +
-					'px, 0px)';
+					'translate3d(0, ' + this.scrollY() + 'px, 0px)';
 				// disallow scroll
-				window.addEventListener('scroll', this.noscroll);
+				// window.addEventListener('scroll', this.noscroll);
 				// ------------------------------------------
 				// -------------- Show Content --------------
 				setTimeout(() => {
@@ -128,6 +122,7 @@ class PortfolioSection extends Component {
 					document
 						.querySelector('.close-button')
 						.classList.add('close-button--show');
+					// document.querySelector('body').classList.add('noscroll');
 				}, 600);
 			}, 25);
 		}, 300);
@@ -136,16 +131,14 @@ class PortfolioSection extends Component {
 	closeContent = () => {
 		const main = document.querySelector('.main'),
 			portfolio = document.querySelector('.portfolio'),
-			portGrid = document.querySelector('.port-grid'),
-			infoBlock = document.querySelector('.info-block'),
 			dummy = document.querySelector('.port-content__placeholder');
-		let tileOffsetTop = this.state.currentItem.closest('.port-tile')
-				.offsetTop + portfolio.offsetTop,
+		let tileOffsetTop =
+				this.state.currentItem.closest('.port-tile').offsetTop +
+				portfolio.offsetTop,
 			currentRect = this.state.currentItem.getBoundingClientRect(),
 			mainRect = main.getBoundingClientRect();
 		// ------------------------------------------
 		// -------------- Hide content --------------
-		// infoBlock.style.display = 'block';
 		document
 			.querySelector(
 				`.port-content__item[data-project="${this.state.currentPos}"]`
@@ -160,6 +153,7 @@ class PortfolioSection extends Component {
 		// --------------------------------------------------
 		// -------------- Shrink Dummy Elemeny --------------
 		setTimeout(() => {
+			// document.querySelector('body').classList.remove('noscroll');
 			dummy.style.WebkitTransform = `
 				translate3d(${currentRect.left}px, 
 					${tileOffsetTop}px, 0px) 
@@ -188,7 +182,7 @@ class PortfolioSection extends Component {
 				currentPos  : -1,
 				lockScroll  : false
 			});
-			window.removeEventListener('scroll', this.noscroll);
+			// window.removeEventListener('scroll', this.noscroll);
 		}, 700);
 	};
 
