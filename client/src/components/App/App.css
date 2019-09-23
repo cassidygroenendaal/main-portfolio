@@ -47,11 +47,93 @@ body {
 
 /********      Hero      ********/
 .hero {
-	background: lightsalmon;
+	background: #2e2e2e;
 	height: 100vh;
+	color: #fff;
 }
 
-/* .hero__contents {} */
+.hero__contents--green {
+	color: #9ef74a;
+}
+
+.hero__contents--purple {
+	color: #b84af7;
+}
+
+.hero__contents--blue {
+	color: #4ad5f7;
+}
+
+/* Mouse Trail */
+.line {
+	pointer-events: none;
+	position: absolute;
+	z-index: 100;
+	width: 2px;
+	height: 50px;
+	background: gray;
+	animation: implode 1s ease-in-out;
+	animation-fill-mode: both;
+	opacity: .5;
+}
+
+.line--green {
+	background: #9ef74a;
+}
+
+.line--purple {
+	background: #b84af7;
+}
+
+.line--blue {
+	background: #4ad5f7;
+}
+
+.ball {
+	pointer-events: none;
+	position: absolute;
+	z-index: 100;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: gray;
+	animation: implode 1s ease-in-out;
+	animation-fill-mode: both;
+	opacity: .5;
+}
+
+.ball--green {
+	background: #9ef74a;
+}
+
+.ball--purple {
+	background: #b84af7;
+}
+
+.ball--blue {
+	background: #4ad5f7;
+}
+
+.ball--outline-green {
+	background: none;
+	border: 2px solid #9ef74a;
+}
+
+.ball--outline-purple {
+	background: none;
+	border: 2px solid #b84af7;
+}
+
+.ball--outline-blue {
+	background: none;
+	border: 2px solid #4ad5f7;
+}
+
+@keyframes implode {
+	100% {
+		transform: scale(0);
+	}
+}
 
 /******** Portfolio Grid ********/
 .portfolio {
@@ -60,13 +142,10 @@ body {
 	position: relative;
 }
 
-/* Portfolio Main */
-
 /* Portfolio Grid Items */
 .port-grid {
 	width: 80%;
 	margin: 0 auto;
-	/* position: relative; */
 }
 
 .port-item {
@@ -76,11 +155,9 @@ body {
 	width: 100%;
 	min-height: 20em;
 	height: 18vw;
-	/* height: 20em; */
 }
 
 .port-item__image {
-	/* background: rgb(255, 92, 92); */
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -88,7 +165,7 @@ body {
 
 .port-item__overlay {
 	position: absolute;
-	background: rgba(109, 243, 243, 0.7);
+	background: #9ef74ad2;
 	top: 150%;
 	right: 0;
 	bottom: 0;
@@ -146,17 +223,7 @@ body {
 	-webkit-transition: -webkit-transform 0.5s;
 	transition: transform 0.5s;
 }
-/* scroll helper wrap */
-/* .scroll-wrap {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	z-index: 1;
-	overflow-y: scroll;
-	-webkit-overflow-scrolling: touch;
-} */
+
 /* Portfolio Content */
 .port-content {
 	position: absolute;
@@ -187,7 +254,6 @@ body {
 	font-size: 0.85em;
 }
 .port-content__item.port-content__item--show {
-	/* height: auto; */
 	overflow-y: scroll;
 	min-height: 100vh;
 	opacity: 1;
@@ -233,15 +299,17 @@ body {
 .info-block {
 	background: lightyellow;
 }
+
 /********      About     ********/
 .about {
-	background: pink;
+	background: #fff;
 	min-height: 17.5em;
 	height: 40vh;
 }
 /********     Contact    ********/
 .contact {
-	background: lightblue;
+	background: #2e2e2e;
 	min-height: 17.5em;
 	height: 40vh;
+	color: #fff;
 }
