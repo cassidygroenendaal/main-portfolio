@@ -7,7 +7,7 @@ import InfoSection from '../../components/InfoSection';
 class HomePage extends Component {
 	render() {
 		return (
-			<div>
+			<div className="main">
 				<HeroSection />
 				<PortfolioSection />
 				<InfoSection />

@@ -60,14 +60,15 @@ class PortfolioSection extends Component {
 	loadContent = () => {
 		// -----------------------------------------------------
 		// -------------- Grab elements and sizes --------------
-		const portfolio = document.querySelector('.portfolio'),
+		const main = document.querySelector('.main'),
+			portfolio = document.querySelector('.portfolio'),
 			portGrid = document.querySelector('.port-grid'),
 			infoBlock = document.querySelector('.info-block');
-		infoBlock.style.display = 'none';
+		// infoBlock.style.display = 'none';
 		let tileOffsetTop = this.state.currentItem.closest('.port-tile')
-				.offsetTop,
+				.offsetTop + portfolio.offsetTop,
 			currentRect = this.state.currentItem.getBoundingClientRect(),
-			portfolioRect = portfolio.getBoundingClientRect();
+			mainRect = main.getBoundingClientRect();
 		// ---------------------------------------------------
 		// -------------- Animate White Overlay --------------
 		let dummyOverlay = this.state.currentItem.querySelector(
@@ -83,17 +84,17 @@ class PortfolioSection extends Component {
 			dummy.style.WebkitTransform = `
 		translate3d(${currentRect.left}px,
 			${tileOffsetTop}px, 0px)
-			scale3d(${currentRect.width / portfolioRect.width},
+			scale3d(${currentRect.width / mainRect.width},
 			${currentRect.height / this.getViewport('y')}, 1)`;
 			dummy.style.transform = `
 			translate3d(${currentRect.left}px, 
 				${tileOffsetTop}px, 0px) 
-			scale3d(${currentRect.width / portfolioRect.width},
+			scale3d(${currentRect.width / mainRect.width},
 			${currentRect.height / this.getViewport('y')}, 1)`;
 			// Add transition class
 			dummy.classList.add('placeholder--trans-in');
 			// Insert dummy after all portfolio grid items
-			portfolio.appendChild(dummy);
+			document.querySelector('.main').appendChild(dummy);
 			// --------------------------------------------------
 			// -------------- Expand dummy element --------------
 			setTimeout(() => {
@@ -101,14 +102,14 @@ class PortfolioSection extends Component {
 				console.log(this.scrollY());
 				dummy.style.WebkitTransform =
 					'translate3d(0, ' +
-					(this.scrollY() - this.getViewport('y')) +
+					(this.scrollY()) +
 					'px, 0px)';
 				dummy.style.transform =
 					'translate3d(0, ' +
-					(this.scrollY() - this.getViewport('y')) +
+					(this.scrollY()) +
 					'px, 0px)';
 				// disallow scroll
-				window.addEventListener('scroll', this.noscroll);
+				// window.addEventListener('scroll', this.noscroll);
 				// ------------------------------------------
 				// -------------- Show Content --------------
 				setTimeout(() => {
@@ -133,17 +134,18 @@ class PortfolioSection extends Component {
 	};
 
 	closeContent = () => {
-		const portfolio = document.querySelector('.portfolio'),
+		const main = document.querySelector('.main'),
+			portfolio = document.querySelector('.portfolio'),
 			portGrid = document.querySelector('.port-grid'),
 			infoBlock = document.querySelector('.info-block'),
 			dummy = document.querySelector('.port-content__placeholder');
 		let tileOffsetTop = this.state.currentItem.closest('.port-tile')
-				.offsetTop,
+				.offsetTop + portfolio.offsetTop,
 			currentRect = this.state.currentItem.getBoundingClientRect(),
-			portfolioRect = portfolio.getBoundingClientRect();
+			mainRect = main.getBoundingClientRect();
 		// ------------------------------------------
 		// -------------- Hide content --------------
-		infoBlock.style.display = 'block';
+		// infoBlock.style.display = 'block';
 		document
 			.querySelector(
 				`.port-content__item[data-project="${this.state.currentPos}"]`
@@ -161,12 +163,12 @@ class PortfolioSection extends Component {
 			dummy.style.WebkitTransform = `
 				translate3d(${currentRect.left}px, 
 					${tileOffsetTop}px, 0px) 
-				scale3d(${currentRect.width / portfolioRect.width}, 
+				scale3d(${currentRect.width / mainRect.width}, 
 					${currentRect.height / this.getViewport('y')}, 1)`;
 			dummy.style.transform = `
 					translate3d(${currentRect.left}px, 
 						${tileOffsetTop}px, 0px) 
-					scale3d(${currentRect.width / portfolioRect.width}, 
+					scale3d(${currentRect.width / mainRect.width}, 
 						${currentRect.height / this.getViewport('y')}, 1)`;
 		}, 25);
 		// ---------------------------------------------------
@@ -176,7 +178,7 @@ class PortfolioSection extends Component {
 				'.port-item__dummy-overlay'
 			);
 			dummyOverlay.classList.remove('port-item__dummy-overlay--show');
-			portfolio.removeChild(dummy);
+			document.querySelector('.main').removeChild(dummy);
 		}, 600);
 		// -----------------------------------------
 		// -------------- Reset State --------------
@@ -186,7 +188,7 @@ class PortfolioSection extends Component {
 				currentPos  : -1,
 				lockScroll  : false
 			});
-			window.removeEventListener('scroll', this.noscroll);
+			// window.removeEventListener('scroll', this.noscroll);
 		}, 700);
 	};
 
