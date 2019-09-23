@@ -2,7 +2,7 @@ import React from 'react';
 
 function PortfolioInfo(props) {
 	return (
-		<article data-project={props.projectNum}>
+		<article data-project={props.projectNum} className="port-content__item">
 			<h3>{props.title}</h3>
 			<p>
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit.

@@ -40,7 +40,7 @@ class PortfolioContent extends Component {
 						imgURL="/images/project-thumbs/proj-14-scraper.png"
 					/>
 				</div>
-				<button className="close-button close-button--show" onClick={this.props.onCloseClick}>
+				<button className="close-button" onClick={this.props.onCloseClick}>
 					<i className="fas fa-times" />
 					<span>Close</span>
 				</button>

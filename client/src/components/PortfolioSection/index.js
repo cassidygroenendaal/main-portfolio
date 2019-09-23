@@ -69,32 +69,41 @@ class PortfolioSection extends Component {
 		let dummy = document.createElement('div');
 		dummy.className = 'port-content__placeholder';
 		// Set size/position of dummy
-		dummy.style.WebkitTransform = `
-			translate3d(${currentRect.left}px, 
-			${currentRect.top}px, 0px) 
-			scale3d(${currentRect.width / portfolioRect.width},
+		dummy.style.WebkitTransform =
+			// translate3d(${currentRect.left}px,
+			// ${currentRect.top}px, 0px)
+			`scale3d(${currentRect.width / portfolioRect.width},
 			${currentRect.height / this.getViewport('y')}, 1)`;
+		// translate3d(${currentRect.left}px,
+		// ${currentRect.top}px, 0px)
 		dummy.style.transform = `
 			translate3d(${currentRect.left}px, 
-			${currentRect.top}px, 0px) 
+				${this.state.currentItem.offsetTop}px, 0px) 
 			scale3d(${currentRect.width / portfolioRect.width},
 			${currentRect.height / this.getViewport('y')}, 1)`;
 		// Add transition class
 		dummy.classList.add('placeholder--trans-in');
 		// Insert dummy after all portfolio grid items
 		portfolio.appendChild(dummy);
-		// setTimeout(() => {
-		// 	// expands the placeholder
-		// 	dummy.style.WebkitTransform =
-		// 		'translate3d(-5px, ' + (this.scrollY() - 5) + 'px, 0px)';
-		// 	dummy.style.transform =
-		// 		'translate3d(-5px, ' + (this.scrollY() - 5) + 'px, 0px)';
-		// 	// disallow scroll
-		// 	// window.addEventListener('scroll', this.noscroll);
-		// }, 25);
-		console.log('Dummy', dummy.getBoundingClientRect());
-		dummy.classList.remove('placeholder--trans-in');
-		dummy.classList.add('placeholder--trans-out');
+		setTimeout(() => {
+			// expands the placeholder
+			dummy.style.WebkitTransform =
+				'translate3d(0, -' + (this.scrollY()) + 'px, 0px)';
+			dummy.style.transform =
+				'translate3d(0, -' + (this.scrollY()) + 'px, 0px)';
+			// disallow scroll
+			// window.addEventListener('scroll', this.noscroll);
+			setTimeout(() => {
+				//show content
+				console.log('Dummy', dummy.getBoundingClientRect());
+				dummy.classList.remove('placeholder--trans-in');
+				dummy.classList.add('placeholder--trans-out');
+				document.querySelector(".port-content").classList.add('port-content--show')
+				document.querySelector(`.port-content__item[data-project="${this.state.currentPos}"]`).classList.add('port-content__item--show')
+				document.querySelector(".close-button").classList.add('close-button--show')
+			}, 600)
+		}, 25);
+
 	};
 
 	closeContent = () => {
@@ -104,6 +113,9 @@ class PortfolioSection extends Component {
 			dummy = document.querySelector('.port-content__placeholder');
 		let currentRect = this.state.currentItem.getBoundingClientRect(),
 			portfolioRect = portfolio.getBoundingClientRect();
+			document.querySelector(`.port-content__item[data-project="${this.state.currentPos}"]`).classList.remove('port-content__item--show')
+			document.querySelector(".port-content").classList.remove('port-content--show')
+			document.querySelector(".close-button").classList.remove('close-button--show')
 		setTimeout(() => {
 			dummy.style.WebkitTransform = `
 				translate3d(${currentRect.left}px, 
@@ -125,7 +137,7 @@ class PortfolioSection extends Component {
 				lockScroll  : false
 			});
 			// window.removeEventListener('scroll', this.noscroll);
-		}, 800);
+		}, 1000);
 	};
 
 	componentDidMount() {}
