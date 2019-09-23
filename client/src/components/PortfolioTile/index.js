@@ -22,6 +22,7 @@ function PortfolioTile(props) {
 					<h5 className="overlay__title">{props.title}</h5>
 					<p className="overlay__text">Read More...</p>
 				</div>
+				<div className="port-item__dummy-overlay"></div>
 				{/* </Link> */}
 			</div>
 		</div>

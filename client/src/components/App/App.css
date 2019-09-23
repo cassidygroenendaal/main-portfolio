@@ -85,6 +85,21 @@
 	transition: top 250ms ease-in-out;
 }
 
+.port-item__dummy-overlay {
+	position: absolute;
+	background: #fff;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	transition: opacity 300ms ease-in-out;
+}
+
+.port-item__dummy-overlay--show {
+	opacity: 1;
+}
+
 .port-item:hover .port-item__overlay,
 .port-item:focus .port-item__overlay {
 	top: 0;
@@ -118,56 +133,48 @@
 	);
 	transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-
 .port-content__placeholder.placeholder--trans-out {
 	-webkit-transition: -webkit-transform 0.5s;
 	transition: transform 0.5s;
 }
-
 /* Portfolio Content */
-
 .port-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  pointer-events: none;
-  height: 0;
-  /* Avoid second scroll bar in Chrome! */
-  visibility: hidden;
-  z-index: 400;
-  overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	pointer-events: none;
+	height: 0;
+	/* Avoid second scroll bar in Chrome! */
+	visibility: hidden;
+	z-index: 400;
+	overflow: hidden;
 }
-
 .port-content.port-content--show {
-  height: 100vh;
-  pointer-events: auto;
-  visibility: visible;
+	height: 100vh;
+	pointer-events: auto;
+	visibility: visible;
 }
-
 .port-content__item {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  overflow: hidden;
-  height: 0;
-  opacity: 0;
-  padding: 60px 60px 80px 60px;
-  pointer-events: none;
-  font-size: 0.85em;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	overflow: hidden;
+	height: 0;
+	opacity: 0;
+	padding: 60px 60px 80px 60px;
+	pointer-events: none;
+	font-size: 0.85em;
 }
-
 .port-content__item.port-content__item--show {
-  height: auto;
-  min-height: 100vh;
-  opacity: 1;
-  pointer-events: auto;
-  -webkit-transition: opacity 0.6s;
-  transition: opacity 0.6s;
+	height: auto;
+	min-height: 100vh;
+	opacity: 1;
+	pointer-events: auto;
+	-webkit-transition: opacity 0.6s;
+	transition: opacity 0.6s;
 }
-
 /* Portfolio Content Close Button */
-
 .close-button {
 	position: absolute;
 	border: none;
@@ -191,36 +198,28 @@
 	-webkit-transition: opacity 0.3s;
 	transition: opacity 0.3s;
 }
-
 .close-button span {
 	display: none;
 }
-
 .close-button:hover {
 	color: #7b7b7b;
 }
-
 .close-button--show {
 	opacity: 1;
 	pointer-events: auto;
 }
-
 /********   Info Block   ********/
-
 .info-block {
 	background: lightyellow;
 }
 
 /********      About     ********/
-
 .about {
 	background: pink;
 	min-height: 17.5em;
 	height: 40vh;
 }
-
 /********     Contact    ********/
-
 .contact {
 	background: lightblue;
 	min-height: 17.5em;

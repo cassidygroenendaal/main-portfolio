@@ -58,62 +58,76 @@ class PortfolioSection extends Component {
 	};
 
 	loadContent = () => {
+		// -----------------------------------------------------
+		// -------------- Grab elements and sizes --------------
 		const portfolio = document.querySelector('.portfolio'),
 			portGrid = document.querySelector('.port-grid');
 		let tileOffsetTop = this.state.currentItem.closest('.port-tile')
 				.offsetTop,
 			currentRect = this.state.currentItem.getBoundingClientRect(),
 			portfolioRect = portfolio.getBoundingClientRect();
-		// Create dummy element
-		let dummy = document.createElement('div');
-		dummy.className = 'port-content__placeholder';
-		// Set size/position of dummy
-		dummy.style.WebkitTransform = `
-			translate3d(${currentRect.left}px,
-			${currentRect.top}px, 0px)
+		// ---------------------------------------------------
+		// -------------- Animate White Overlay --------------
+		let dummyOverlay = this.state.currentItem.querySelector(
+			'.port-item__dummy-overlay'
+		);
+		dummyOverlay.classList.add('port-item__dummy-overlay--show');
+		// --------------------------------------------------
+		// -------------- Create dummy element --------------
+		setTimeout(() => {
+			let dummy = document.createElement('div');
+			dummy.className = 'port-content__placeholder';
+			// Set size/position of dummy
+			dummy.style.WebkitTransform = `
+		translate3d(${currentRect.left}px,
+			${tileOffsetTop}px, 0px)
 			scale3d(${currentRect.width / portfolioRect.width},
 			${currentRect.height / this.getViewport('y')}, 1)`;
-		// translate3d(${currentRect.left}px,
-		// ${currentRect.top}px, 0px)
-		dummy.style.transform = `
+			dummy.style.transform = `
 			translate3d(${currentRect.left}px, 
 				${tileOffsetTop}px, 0px) 
 			scale3d(${currentRect.width / portfolioRect.width},
 			${currentRect.height / this.getViewport('y')}, 1)`;
-		// Add transition class
-		dummy.classList.add('placeholder--trans-in');
-		// Insert dummy after all portfolio grid items
-		portfolio.appendChild(dummy);
-		setTimeout(() => {
-			// expands the placeholder
-			// dummy.style.WebkitTransform =
-			// 	'translate3d(0, -' + (this.scrollY()) + 'px, 0px)';
-			// dummy.style.transform =
-			// 	'translate3d(0, -' + (this.scrollY()) + 'px, 0px)';
-			dummy.style.WebkitTransform =
-				'translate3d(0, ' + (tileOffsetTop + this.scrollY()) + 'px, 0px)';
-			dummy.style.transform =
-				'translate3d(0, ' + (tileOffsetTop + this.scrollY()) + 'px, 0px)';
-			// disallow scroll
-			// window.addEventListener('scroll', this.noscroll);
+			// Add transition class
+			dummy.classList.add('placeholder--trans-in');
+			// Insert dummy after all portfolio grid items
+			portfolio.appendChild(dummy);
+			// --------------------------------------------------
+			// -------------- Expand dummy element --------------
 			setTimeout(() => {
-				//show content
-				dummy.classList.remove('placeholder--trans-in');
-				dummy.classList.add('placeholder--trans-out');
-				document
-					.querySelector('.port-content')
-					.classList.add('port-content--show');
-				document
-					.querySelector(
-						`.port-content__item[data-project="${this.state
-							.currentPos}"]`
-					)
-					.classList.add('port-content__item--show');
-				document
-					.querySelector('.close-button')
-					.classList.add('close-button--show');
-			}, 600);
-		}, 25);
+				// expands the placeholder
+				console.log(this.scrollY());
+				dummy.style.WebkitTransform =
+					'translate3d(0, ' +
+					(this.scrollY() - this.getViewport('y')) +
+					'px, 0px)';
+				dummy.style.transform =
+					'translate3d(0, ' +
+					(this.scrollY() - this.getViewport('y')) +
+					'px, 0px)';
+				// disallow scroll
+				window.addEventListener('scroll', this.noscroll);
+				// ------------------------------------------
+				// -------------- Show Content --------------
+				setTimeout(() => {
+					//show content
+					dummy.classList.remove('placeholder--trans-in');
+					dummy.classList.add('placeholder--trans-out');
+					document
+						.querySelector('.port-content')
+						.classList.add('port-content--show');
+					document
+						.querySelector(
+							`.port-content__item[data-project="${this.state
+								.currentPos}"]`
+						)
+						.classList.add('port-content__item--show');
+					document
+						.querySelector('.close-button')
+						.classList.add('close-button--show');
+				}, 600);
+			}, 25);
+		}, 300);
 	};
 
 	closeContent = () => {
@@ -124,6 +138,8 @@ class PortfolioSection extends Component {
 				.offsetTop,
 			currentRect = this.state.currentItem.getBoundingClientRect(),
 			portfolioRect = portfolio.getBoundingClientRect();
+		// ------------------------------------------
+		// -------------- Hide content --------------
 		document
 			.querySelector(
 				`.port-content__item[data-project="${this.state.currentPos}"]`
@@ -135,6 +151,8 @@ class PortfolioSection extends Component {
 		document
 			.querySelector('.close-button')
 			.classList.remove('close-button--show');
+		// --------------------------------------------------
+		// -------------- Shrink Dummy Elemeny --------------
 		setTimeout(() => {
 			dummy.style.WebkitTransform = `
 				translate3d(${currentRect.left}px, 
@@ -147,16 +165,25 @@ class PortfolioSection extends Component {
 					scale3d(${currentRect.width / portfolioRect.width}, 
 						${currentRect.height / this.getViewport('y')}, 1)`;
 		}, 25);
+		// ---------------------------------------------------
+		// -------------- Animate White Overlay --------------
 		setTimeout(() => {
+			let dummyOverlay = this.state.currentItem.querySelector(
+				'.port-item__dummy-overlay'
+			);
+			dummyOverlay.classList.remove('port-item__dummy-overlay--show');
 			portfolio.removeChild(dummy);
-			// Reset state
+		}, 600);
+		// -----------------------------------------
+		// -------------- Reset State --------------
+		setTimeout(() => {
 			this.setState({
 				currentItem : null,
 				currentPos  : -1,
 				lockScroll  : false
 			});
-			// window.removeEventListener('scroll', this.noscroll);
-		}, 1000);
+			window.removeEventListener('scroll', this.noscroll);
+		}, 700);
 	};
 
 	componentDidMount() {}
