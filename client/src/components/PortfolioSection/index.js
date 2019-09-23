@@ -48,7 +48,6 @@ class PortfolioSection extends Component {
 
 	clickTile = (e) => {
 		e.preventDefault();
-		console.log('You clicked tile', e.currentTarget.dataset.project);
 		//Save which tile was clicked
 		this.setState({
 			currentItem : e.currentTarget,
@@ -61,24 +60,24 @@ class PortfolioSection extends Component {
 	loadContent = () => {
 		const portfolio = document.querySelector('.portfolio'),
 			portGrid = document.querySelector('.port-grid');
-		console.log('Loading content for tile', this.state.currentItem);
-		let currentRect = this.state.currentItem.getBoundingClientRect(),
+		let tileOffsetTop = this.state.currentItem.closest('.port-tile')
+				.offsetTop,
+			currentRect = this.state.currentItem.getBoundingClientRect(),
 			portfolioRect = portfolio.getBoundingClientRect();
-		console.log('Clicked Tile', currentRect);
 		// Create dummy element
 		let dummy = document.createElement('div');
 		dummy.className = 'port-content__placeholder';
 		// Set size/position of dummy
-		dummy.style.WebkitTransform =
-			// translate3d(${currentRect.left}px,
-			// ${currentRect.top}px, 0px)
-			`scale3d(${currentRect.width / portfolioRect.width},
+		dummy.style.WebkitTransform = `
+			translate3d(${currentRect.left}px,
+			${currentRect.top}px, 0px)
+			scale3d(${currentRect.width / portfolioRect.width},
 			${currentRect.height / this.getViewport('y')}, 1)`;
 		// translate3d(${currentRect.left}px,
 		// ${currentRect.top}px, 0px)
 		dummy.style.transform = `
 			translate3d(${currentRect.left}px, 
-				${this.state.currentItem.offsetTop}px, 0px) 
+				${tileOffsetTop}px, 0px) 
 			scale3d(${currentRect.width / portfolioRect.width},
 			${currentRect.height / this.getViewport('y')}, 1)`;
 		// Add transition class
@@ -87,44 +86,64 @@ class PortfolioSection extends Component {
 		portfolio.appendChild(dummy);
 		setTimeout(() => {
 			// expands the placeholder
+			// dummy.style.WebkitTransform =
+			// 	'translate3d(0, -' + (this.scrollY()) + 'px, 0px)';
+			// dummy.style.transform =
+			// 	'translate3d(0, -' + (this.scrollY()) + 'px, 0px)';
 			dummy.style.WebkitTransform =
-				'translate3d(0, -' + (this.scrollY()) + 'px, 0px)';
+				'translate3d(0, ' + (tileOffsetTop + this.scrollY()) + 'px, 0px)';
 			dummy.style.transform =
-				'translate3d(0, -' + (this.scrollY()) + 'px, 0px)';
+				'translate3d(0, ' + (tileOffsetTop + this.scrollY()) + 'px, 0px)';
 			// disallow scroll
 			// window.addEventListener('scroll', this.noscroll);
 			setTimeout(() => {
 				//show content
-				console.log('Dummy', dummy.getBoundingClientRect());
 				dummy.classList.remove('placeholder--trans-in');
 				dummy.classList.add('placeholder--trans-out');
-				document.querySelector(".port-content").classList.add('port-content--show')
-				document.querySelector(`.port-content__item[data-project="${this.state.currentPos}"]`).classList.add('port-content__item--show')
-				document.querySelector(".close-button").classList.add('close-button--show')
-			}, 600)
+				document
+					.querySelector('.port-content')
+					.classList.add('port-content--show');
+				document
+					.querySelector(
+						`.port-content__item[data-project="${this.state
+							.currentPos}"]`
+					)
+					.classList.add('port-content__item--show');
+				document
+					.querySelector('.close-button')
+					.classList.add('close-button--show');
+			}, 600);
 		}, 25);
-
 	};
 
 	closeContent = () => {
-		console.log('Clicked close!');
 		const portfolio = document.querySelector('.portfolio'),
 			portGrid = document.querySelector('.port-grid'),
 			dummy = document.querySelector('.port-content__placeholder');
-		let currentRect = this.state.currentItem.getBoundingClientRect(),
+		let tileOffsetTop = this.state.currentItem.closest('.port-tile')
+				.offsetTop,
+			currentRect = this.state.currentItem.getBoundingClientRect(),
 			portfolioRect = portfolio.getBoundingClientRect();
-			document.querySelector(`.port-content__item[data-project="${this.state.currentPos}"]`).classList.remove('port-content__item--show')
-			document.querySelector(".port-content").classList.remove('port-content--show')
-			document.querySelector(".close-button").classList.remove('close-button--show')
+		document
+			.querySelector(
+				`.port-content__item[data-project="${this.state.currentPos}"]`
+			)
+			.classList.remove('port-content__item--show');
+		document
+			.querySelector('.port-content')
+			.classList.remove('port-content--show');
+		document
+			.querySelector('.close-button')
+			.classList.remove('close-button--show');
 		setTimeout(() => {
 			dummy.style.WebkitTransform = `
 				translate3d(${currentRect.left}px, 
-					${currentRect.top}px, 0px) 
+					${tileOffsetTop}px, 0px) 
 				scale3d(${currentRect.width / portfolioRect.width}, 
 					${currentRect.height / this.getViewport('y')}, 1)`;
 			dummy.style.transform = `
 					translate3d(${currentRect.left}px, 
-						${currentRect.top}px, 0px) 
+						${tileOffsetTop}px, 0px) 
 					scale3d(${currentRect.width / portfolioRect.width}, 
 						${currentRect.height / this.getViewport('y')}, 1)`;
 		}, 25);

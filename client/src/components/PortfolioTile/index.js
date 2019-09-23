@@ -3,7 +3,7 @@ import React from 'react';
 
 function PortfolioTile(props) {
 	return (
-		<div className="col-lg-4 col-md-6 col-12">
+		<div className="col-lg-4 col-md-6 col-12 port-tile">
 			<div
 				className="d-block port-item"
 				onClick={props.onClick}
