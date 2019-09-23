@@ -97,7 +97,6 @@ class PortfolioSection extends Component {
 			// -------------- Expand dummy element --------------
 			setTimeout(() => {
 				// expands the placeholder
-				console.log(this.scrollY());
 				dummy.style.WebkitTransform =
 					'translate3d(0, ' + this.scrollY() + 'px, 0px)';
 				dummy.style.transform =
@@ -129,6 +128,8 @@ class PortfolioSection extends Component {
 	};
 
 	closeContent = () => {
+		// -----------------------------------------------------
+		// -------------- Grab elements and sizes --------------
 		const main = document.querySelector('.main'),
 			portfolio = document.querySelector('.portfolio'),
 			dummy = document.querySelector('.port-content__placeholder');
@@ -136,14 +137,13 @@ class PortfolioSection extends Component {
 				this.state.currentItem.closest('.port-tile').offsetTop +
 				portfolio.offsetTop,
 			currentRect = this.state.currentItem.getBoundingClientRect(),
-			mainRect = main.getBoundingClientRect();
+			mainRect = main.getBoundingClientRect(),
+			contentItem = document.querySelector(
+				`.port-content__item[data-project="${this.state.currentPos}"]`
+			);
 		// ------------------------------------------
 		// -------------- Hide content --------------
-		document
-			.querySelector(
-				`.port-content__item[data-project="${this.state.currentPos}"]`
-			)
-			.classList.remove('port-content__item--show');
+		contentItem.classList.remove('port-content__item--show');
 		document
 			.querySelector('.port-content')
 			.classList.remove('port-content--show');
@@ -168,6 +168,7 @@ class PortfolioSection extends Component {
 		// ---------------------------------------------------
 		// -------------- Animate White Overlay --------------
 		setTimeout(() => {
+			contentItem.scrollTop = 0;
 			let dummyOverlay = this.state.currentItem.querySelector(
 				'.port-item__dummy-overlay'
 			);
