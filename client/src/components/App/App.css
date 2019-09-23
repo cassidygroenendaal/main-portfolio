@@ -156,7 +156,7 @@
 	visibility: visible;
 }
 .port-content__item {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	width: 100%;
 	overflow: hidden;
@@ -176,7 +176,7 @@
 }
 /* Portfolio Content Close Button */
 .close-button {
-	position: absolute;
+	position: fixed;
 	border: none;
 	background: none;
 	margin: 0;
