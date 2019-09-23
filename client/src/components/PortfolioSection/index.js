@@ -61,7 +61,9 @@ class PortfolioSection extends Component {
 		// -----------------------------------------------------
 		// -------------- Grab elements and sizes --------------
 		const portfolio = document.querySelector('.portfolio'),
-			portGrid = document.querySelector('.port-grid');
+			portGrid = document.querySelector('.port-grid'),
+			infoBlock = document.querySelector('.info-block');
+		infoBlock.style.display = 'none';
 		let tileOffsetTop = this.state.currentItem.closest('.port-tile')
 				.offsetTop,
 			currentRect = this.state.currentItem.getBoundingClientRect(),
@@ -133,6 +135,7 @@ class PortfolioSection extends Component {
 	closeContent = () => {
 		const portfolio = document.querySelector('.portfolio'),
 			portGrid = document.querySelector('.port-grid'),
+			infoBlock = document.querySelector('.info-block'),
 			dummy = document.querySelector('.port-content__placeholder');
 		let tileOffsetTop = this.state.currentItem.closest('.port-tile')
 				.offsetTop,
@@ -140,6 +143,7 @@ class PortfolioSection extends Component {
 			portfolioRect = portfolio.getBoundingClientRect();
 		// ------------------------------------------
 		// -------------- Hide content --------------
+		infoBlock.style.display = 'block';
 		document
 			.querySelector(
 				`.port-content__item[data-project="${this.state.currentPos}"]`
