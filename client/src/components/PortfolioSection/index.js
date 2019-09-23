@@ -109,7 +109,7 @@ class PortfolioSection extends Component {
 					(this.scrollY()) +
 					'px, 0px)';
 				// disallow scroll
-				// window.addEventListener('scroll', this.noscroll);
+				window.addEventListener('scroll', this.noscroll);
 				// ------------------------------------------
 				// -------------- Show Content --------------
 				setTimeout(() => {
@@ -188,7 +188,7 @@ class PortfolioSection extends Component {
 				currentPos  : -1,
 				lockScroll  : false
 			});
-			// window.removeEventListener('scroll', this.noscroll);
+			window.removeEventListener('scroll', this.noscroll);
 		}, 700);
 	};
 
