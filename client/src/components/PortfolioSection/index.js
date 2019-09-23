@@ -122,7 +122,7 @@ class PortfolioSection extends Component {
 					document
 						.querySelector('.close-button')
 						.classList.add('close-button--show');
-					// document.querySelector('body').classList.add('noscroll');
+					document.querySelector('body').classList.add('noscroll');
 				}, 600);
 			}, 25);
 		}, 300);
@@ -153,7 +153,7 @@ class PortfolioSection extends Component {
 		// --------------------------------------------------
 		// -------------- Shrink Dummy Elemeny --------------
 		setTimeout(() => {
-			// document.querySelector('body').classList.remove('noscroll');
+			document.querySelector('body').classList.remove('noscroll');
 			dummy.style.WebkitTransform = `
 				translate3d(${currentRect.left}px, 
 					${tileOffsetTop}px, 0px) 

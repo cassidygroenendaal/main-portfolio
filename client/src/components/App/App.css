@@ -1,7 +1,7 @@
 body {
-  overflow: hidden;
-  overflow-y: scroll;
-  /* force scroll to appear */
+	overflow: hidden;
+	overflow-y: scroll;
+	/* force scroll to appear */
 }
 
 /********      App       ********/
@@ -146,7 +146,6 @@ body {
 	-webkit-transition: -webkit-transform 0.5s;
 	transition: transform 0.5s;
 }
-
 /* scroll helper wrap */
 /* .scroll-wrap {
 	position: absolute;
@@ -158,7 +157,6 @@ body {
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
 } */
-
 /* Portfolio Content */
 .port-content {
 	position: absolute;
@@ -189,14 +187,14 @@ body {
 	font-size: 0.85em;
 }
 .port-content__item.port-content__item--show {
-	height: auto;
+	/* height: auto; */
+	overflow-y: scroll;
 	min-height: 100vh;
 	opacity: 1;
 	pointer-events: auto;
 	-webkit-transition: opacity 0.6s;
 	transition: opacity 0.6s;
 }
-
 /* Portfolio Content Close Button */
 .close-button {
 	position: fixed;
