@@ -1,3 +1,7 @@
+body {
+	overflow-x: hidden;
+}
+
 /********      App       ********/
 
 .App {
@@ -128,7 +132,6 @@
 		transform: scale(0);
 	}
 }
-
 
 /******** Portfolio Grid ********/
 .portfolio {
