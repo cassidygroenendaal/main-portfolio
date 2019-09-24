@@ -22,20 +22,34 @@ class HeroSection extends Component {
 	};
 
 	createTrail = () => {
-		// Create the trail element where the mouse is located
+		// Create the trail element
 		let newTrailEl = document.createElement('div');
 		newTrailEl.classList.add(this.state.styleType);
-		newTrailEl.style.top = `${this.state.mouseY}px`;
-		newTrailEl.style.left = `${this.state.mouseX}px`;
 
 		// Add styles specific to the line trail
 		if (this.state.styleType === 'line') {
+			let randRotation = Math.floor(Math.random() * 360);
 			newTrailEl.style.transform = `
-			rotate(${Math.floor(Math.random() * 360)}deg)`;
+			rotate(${randRotation}deg)`;
 			let randStyle = Math.floor(
 				Math.random() * this.state.lineStyles.length
 			);
+			newTrailEl.animate(
+				[
+					{ transform: `rotate(${randRotation}deg)` },
+					{ transform: `rotate(${randRotation + 100}deg)` }
+				],
+				{
+					duration : 1000
+				}
+			);
 			newTrailEl.classList.add(this.state.lineStyles[randStyle]);
+
+			// Position the trail element
+			let elemTop = `${this.state.mouseY - 50 / 2}px`,
+				elemLeft = `${this.state.mouseX - 2 / 2}px`;
+			newTrailEl.style.top = elemTop;
+			newTrailEl.style.left = elemLeft;
 		}
 
 		// Add styles specific to the ball trail
@@ -47,6 +61,12 @@ class HeroSection extends Component {
 				Math.random() * this.state.ballStyles.length
 			);
 			newTrailEl.classList.add(this.state.ballStyles[randStyle]);
+
+			// Position the trail element
+			let elemTop = `${this.state.mouseY - size / 2}px`,
+				elemLeft = `${this.state.mouseX - size / 2}px`;
+			newTrailEl.style.top = elemTop;
+			newTrailEl.style.left = elemLeft;
 		}
 
 		// Append the trail element to the hero
@@ -87,9 +107,21 @@ class HeroSection extends Component {
 		return (
 			<section className="hero" onMouseMove={this.onMouseMove}>
 				<div className="hero__contents h-100 d-flex align-items-center mx-5">
-					<h1 className="display-1 text-left">
-						I bring <span className="hero__contents--green">art</span> <span className="hero__contents--purple">+</span> <span className="hero__contents--blue">code</span> together
-					</h1>
+					<div>
+						<h1 className="display-1 text-left">
+							I'm{' '}
+							<span className="hero__contents--green">
+								Cassidy Groenendaal
+							</span>
+						</h1>
+						<h1 className="display-2 text-left">
+							I bring{' '}
+							<span className="hero__contents--green">art</span>{' '}
+							<span className="hero__contents--purple">+</span>{' '}
+							<span className="hero__contents--blue">code</span>{' '}
+							together
+						</h1>
+					</div>
 				</div>
 			</section>
 		);

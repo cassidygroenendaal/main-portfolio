@@ -6,10 +6,10 @@ function About(props) {
 			<div className="mx-5 h-100 d-flex flex-column justify-content-center align-items-center">
 				<h2 className="display-4 mb-5">About Me</h2>
 				<p className="text-left">
-					I am a full-stack web developer with a strong desire to work
-					in front-end. I have a particular interest in working
-					closely with web designers to create beautiful user-friendly
-					experiences across the web.
+					I am a dedicated full-stack web developer skilled in
+					responsive web development. I am passionate about combining
+					technology and design to build and optimize elegant,
+					user-centric websites.
 				</p>
 			</div>
 		</div>
