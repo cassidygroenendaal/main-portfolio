@@ -82,7 +82,7 @@ class HeroSection extends Component {
 			}, 1002);
 			setTimeout(() => {
 				this.setState({ isWaiting: false });
-			}, 40);
+			}, 90);
 		}
 	};
 
