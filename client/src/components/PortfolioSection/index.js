@@ -67,6 +67,9 @@ class PortfolioSection extends Component {
 				portfolio.offsetTop,
 			currentRect = this.state.currentItem.getBoundingClientRect(),
 			mainRect = main.getBoundingClientRect();
+		// ----------------------------------------------------
+		// -------------- Prevent Body Scrolling --------------
+			document.querySelector('body').classList.add('noscroll');
 		// ---------------------------------------------------
 		// -------------- Animate White Overlay --------------
 		let dummyOverlay = this.state.currentItem.querySelector(
@@ -121,7 +124,7 @@ class PortfolioSection extends Component {
 					document
 						.querySelector('.close-button')
 						.classList.add('close-button--show');
-					document.querySelector('body').classList.add('noscroll');
+					
 				}, 600);
 			}, 25);
 		}, 300);
