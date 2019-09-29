@@ -1,238 +1,32 @@
-import React from 'react';
+import React from "react";
 
 function PortfolioInfo(props) {
-	return (
-		<article
-			data-project={props.projectNum}
-			className="port-content__item"
-		>
-			<h3>{props.title}</h3>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-				Vitae tenetur in ipsum. Voluptatibus et sed rerum illo
-				dignissimos quo autem vitae dolore voluptatum repellendus?
-				Eveniet facere accusamus at similique autem? A accusamus sunt
-				iure repellendus quis id tempore commodi dignissimos
-				consequatur nemo architecto expedita rerum ipsa neque dicta
-				doloremque velit accusantium temporibus, adipisci, nostrum eum
-				quisquam totam incidunt repellat? Nam. Quasi, ex eaque
-				reiciendis, maiores ducimus esse facere maxime laudantium
-				culpa beatae consectetur odio, quia ipsam iusto possimus.
-				Officia libero minus incidunt. Dolore quisquam eius ea
-				doloribus. Quibusdam, voluptate necessitatibus!
-			</p>
-		</article>
-	);
+  return (
+    <article data-project={props.projectNum} className="port-content__item">
+      <h3>{props.title}</h3>
+      {props.children}
+      <div className="btn-group">
+        {props.siteURL ? (
+          <a
+            className="btn btn-primary"
+            href={props.siteURL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View in Browser
+          </a>
+        ) : null}
+        <a
+          className="btn btn-success"
+          href={props.repoURL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Repository
+        </a>
+      </div>
+    </article>
+  );
 }
 
 export default PortfolioInfo;
