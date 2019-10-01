@@ -3,7 +3,7 @@ import React from "react";
 function PortfolioInfo(props) {
   return (
     <article data-project={props.projectNum} className="port-content__item">
-      <h3>{props.title}</h3>
+      <h3 className="port-content__title">{props.title}</h3>
       {props.children}
       <div className="btn-group">
         {props.siteURL ? (
@@ -13,7 +13,7 @@ function PortfolioInfo(props) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            View in Browser
+            Website
           </a>
         ) : null}
         <a
@@ -22,7 +22,7 @@ function PortfolioInfo(props) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          View Repository
+          Code
         </a>
       </div>
     </article>

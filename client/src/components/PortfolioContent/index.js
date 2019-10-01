@@ -16,10 +16,14 @@ class PortfolioContent extends Component {
             siteURL="https://glacial-savannah-65289.herokuapp.com/"
             repoURL="https://github.com/Tim1986/RoadTripDJ"
           >
-            <p>
+            <p className="port-content__desc">
               Road Trip DJ creates a Spotify playlist for your road trip with musicians
               from the cities you’re traveling to and from. Discover new music, find local
               artists, and keep your long drives interesting with Road Trip DJ.
+            </p>
+            <p className="port-content__tools">
+              Tools: React, Bootstrap, Node, Express, MongoDB, Mongoose, Passport, Axios,
+              Google Maps API, Spotify API, WikiJS
             </p>
           </PortInfo>
           <PortInfo
@@ -29,10 +33,14 @@ class PortfolioContent extends Component {
             siteURL="https://whispering-earth-16314.herokuapp.com/"
             repoURL="https://github.com/cassidygroenendaal/Beacon"
           >
-            <p>
+            <p className="port-content__desc">
               Beacon is a “meet-up” style app that allows users to create events called
               “beacons,” designed to help people make connections with like-minded
               individuals.
+            </p>
+            <p className="port-content__tools">
+              Tools: Bootstrap, Handlebars, Node, Express, MySQL, Sequelize, Passport,
+              Google Maps API
             </p>
           </PortInfo>
           <PortInfo
@@ -42,10 +50,11 @@ class PortfolioContent extends Component {
             siteURL="https://cassidygroenendaal.github.io/Gif-Getter/"
             repoURL="https://github.com/cassidygroenendaal/Gif-Getter"
           >
-            <p>
+            <p className="port-content__desc">
               This app lets you browse gifs from Giphy using dynamically created topic
               buttons. You can also favorite gifs for later viewing.
             </p>
+            <p className="port-content__tools">Tools: HTML, CSS, jQuery</p>
           </PortInfo>
           <PortInfo
             title="Bamazon"
@@ -53,10 +62,11 @@ class PortfolioContent extends Component {
             imgURL="/images/project-thumbs/proj-10-bamazon.gif"
             repoURL="https://github.com/cassidygroenendaal/Bamazon"
           >
-            <p>
+            <p className="port-content__desc">
               Bamazon is an Amazon style app that allows users to "shop" for items,
               managers to "stock" items, and supervisors to "create" store departments.
             </p>
+            <p className="port-content__tools">Tools: Node, MySQL, Inquirer</p>
           </PortInfo>
           <PortInfo
             title="Event Hunter"
@@ -65,9 +75,13 @@ class PortfolioContent extends Component {
             siteURL="https://cassidygroenendaal.github.io/Event-Hunter/"
             repoURL="https://github.com/cassidygroenendaal/Event-Hunter"
           >
-            <p>
+            <p className="port-content__desc">
               Event Hunter is an app that uses Ticketmaster to search for events and
               displays their location in Google Maps.
+            </p>
+            <p className="port-content__tools">
+              Tools: HTML, CSS, Bootstrap, SASS/SCSS, jQuery, Google Maps API,
+              Ticketmaster API
             </p>
           </PortInfo>
           <PortInfo
@@ -77,9 +91,12 @@ class PortfolioContent extends Component {
             siteURL="https://cassidygroenendaal.github.io/Comic-Scraper/"
             repoURL="https://github.com/cassidygroenendaal/Comic-Scraper"
           >
-            <p>
+            <p className="port-content__desc">
               This app scrapes comic titles from a webcomic site and allows you to add
               personal notes to each comic, such as "Must read later!"
+            </p>
+            <p className="port-content__tools">
+              Tools: Handlebars, Node, Express, MongoDB, Mongoose, Axios, Cheerio
             </p>
           </PortInfo>
         </div>
