@@ -10,7 +10,8 @@ class PortfolioSection extends Component {
     lockScroll: false,
     xscroll: null,
     yscroll: null,
-    isClickLocked: false
+    isClickLocked: false,
+    isModalOpen: false
   };
 
   getViewport = (axis) => {
@@ -116,6 +117,12 @@ class PortfolioSection extends Component {
             .querySelector(`.port-content__item[data-project="${this.state.currentPos}"]`)
             .classList.add("port-content__item--show");
           document.querySelector(".close-button").classList.add("close-button--show");
+          //=========================================================================================
+          //=========================================================================================
+          window.history.pushState("forward", null, "");
+          this.setState({
+            isModalOpen: true
+          });
         }, 600);
       }, 25);
     }, 300);
@@ -135,7 +142,12 @@ class PortfolioSection extends Component {
         `.port-content__item[data-project="${this.state.currentPos}"]`
       );
     // ------------------------------------------
-    // -------------- Hide content --------------
+    // -------------- Hide content -------------
+    //=========================================================================================
+    //=========================================================================================-
+    this.setState({
+      isModalOpen: false
+    });
     contentItem.classList.remove("port-content__item--show");
     document.querySelector(".port-content").classList.remove("port-content--show");
     document.querySelector(".close-button").classList.remove("close-button--show");
@@ -177,7 +189,13 @@ class PortfolioSection extends Component {
     }, 700);
   };
 
-  componentDidMount() {}
+  componentDidMount() {
+    window.addEventListener("popstate", () => {
+      if (this.state.isModalOpen) {
+        this.closeContent();
+      }
+    });
+  }
 
   render() {
     return (
