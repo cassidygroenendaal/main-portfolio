@@ -19,7 +19,7 @@ class PortfolioGrid extends Component {
 					onClick={this.props.onTileClick}
 				/>
 				<PortTile
-					title="Giphy API"
+					title="Gif Getter"
 					projectNum={3}
 					imgURL="/images/project-thumbs/proj-05-Giphy-API.PNG"
 					onClick={this.props.onTileClick}
