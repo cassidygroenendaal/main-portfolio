@@ -143,6 +143,12 @@ body {
 }
 
 /* Portfolio Grid Items */
+.port-main__title {
+  padding: 0 1em 0.4em;
+  border-bottom: 2px solid #4ad5f7;
+  display: inline-block;
+}
+
 .port-grid {
   width: 80%;
   margin: 0 auto;
