@@ -24,10 +24,22 @@ class PortfolioContent extends Component {
               from the cities you’re traveling to and from. Discover new music, find local
               artists, and keep your long drives interesting with Road Trip DJ.
             </p>
-            <p className="port-content__tools">
-              Tools: React, Bootstrap, Node, Express, MongoDB, Mongoose, Passport, Axios,
-              Google Maps API, Spotify API, WikiJS
-            </p>
+            <div className="port-content__tools">
+              <h5 className="port-content__tools-header">Tools</h5>
+              <ul className="port-content__list-tools">
+                <li>React</li>
+                <li>Bootstrap</li>
+                <li>Node</li>
+                <li>Express</li>
+                <li>MongoDB</li>
+                <li>Mongoose</li>
+                <li>Passport</li>
+                <li>Axios</li>
+                <li>Google Maps API</li>
+                <li>Spotify API</li>
+                <li>WikiJS</li>
+              </ul>
+            </div>
           </PortInfo>
           <PortInfo
             title="Beacon"
@@ -44,10 +56,19 @@ class PortfolioContent extends Component {
               “beacons,” designed to help people make connections with like-minded
               individuals.
             </p>
-            <p className="port-content__tools">
-              Tools: Bootstrap, Handlebars, Node, Express, MySQL, Sequelize, Passport,
-              Google Maps API
-            </p>
+            <div className="port-content__tools">
+              <h5 className="port-content__tools-header">Tools</h5>
+              <ul className="port-content__list-tools">
+                <li>Bootstrap</li>
+                <li>Handlebars</li>
+                <li>Node</li>
+                <li>Express</li>
+                <li>MySQL</li>
+                <li>Sequelize</li>
+                <li>Passport</li>
+                <li>Google Maps API</li>
+              </ul>
+            </div>
           </PortInfo>
           <PortInfo
             title="Gif Getter"
@@ -61,7 +82,14 @@ class PortfolioContent extends Component {
               This app lets you browse gifs from Giphy using dynamically created topic
               buttons. You can also favorite gifs for later viewing.
             </p>
-            <p className="port-content__tools">Tools: HTML, CSS, jQuery</p>
+            <div className="port-content__tools">
+              <h5 className="port-content__tools-header">Tools</h5>
+              <ul className="port-content__list-tools">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>jQuery</li>
+              </ul>
+            </div>
           </PortInfo>
           <PortInfo
             title="Bamazon"
@@ -76,7 +104,14 @@ class PortfolioContent extends Component {
               Bamazon is an Amazon style app that allows users to "shop" for items,
               managers to "stock" items, and supervisors to "create" store departments.
             </p>
-            <p className="port-content__tools">Tools: Node, MySQL, Inquirer</p>
+            <div className="port-content__tools">
+              <h5 className="port-content__tools-header">Tools</h5>
+              <ul className="port-content__list-tools">
+                <li>Node</li>
+                <li>MySQL</li>
+                <li>Inquirer</li>
+              </ul>
+            </div>
           </PortInfo>
           <PortInfo
             title="Event Hunter"
@@ -92,10 +127,18 @@ class PortfolioContent extends Component {
               Event Hunter is an app that uses Ticketmaster to search for events and
               displays their location in Google Maps.
             </p>
-            <p className="port-content__tools">
-              Tools: HTML, CSS, Bootstrap, SASS/SCSS, jQuery, Google Maps API,
-              Ticketmaster API
-            </p>
+            <div className="port-content__tools">
+              <h5 className="port-content__tools-header">Tools</h5>
+              <ul className="port-content__list-tools">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Bootstrap</li>
+                <li>SASS/SCSS</li>
+                <li>jQuery</li>
+                <li>Google Maps API</li>
+                <li>Ticketmaster API</li>
+              </ul>
+            </div>
           </PortInfo>
           <PortInfo
             title="Comic Scraper"
@@ -111,9 +154,18 @@ class PortfolioContent extends Component {
               This app scrapes comic titles from a webcomic site and allows you to add
               personal notes to each comic, such as "Must read later!"
             </p>
-            <p className="port-content__tools">
-              Tools: Handlebars, Node, Express, MongoDB, Mongoose, Axios, Cheerio
-            </p>
+            <div className="port-content__tools">
+              <h5 className="port-content__tools-header">Tools</h5>
+              <ul className="port-content__list-tools">
+                <li>Handlebars</li>
+                <li>Express</li>
+                <li>Node</li>
+                <li>MongoDB</li>
+                <li>Mongoose</li>
+                <li>Axios</li>
+                <li>Cheerio</li>
+              </ul>
+            </div>
           </PortInfo>
         </div>
         <button className="close-button" onClick={this.props.onCloseClick}>

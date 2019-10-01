@@ -297,6 +297,15 @@ body {
   margin-bottom: 2em;
 }
 
+.port-content__tools {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.port-content__list-tools {
+  text-align: left;
+}
+
 .port-content__item {
   position: fixed;
   top: 0;
