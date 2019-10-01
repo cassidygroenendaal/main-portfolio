@@ -16,7 +16,10 @@ class PortfolioContent extends Component {
             siteURL="https://glacial-savannah-65289.herokuapp.com/"
             repoURL="https://github.com/Tim1986/RoadTripDJ"
           >
-            <p className="port-content__desc">
+            <p className="port-content__role">
+              Full-Stack Development &#38; Database Managment
+            </p>
+            <p className="port-content__overview">
               Road Trip DJ creates a Spotify playlist for your road trip with musicians
               from the cities you’re traveling to and from. Discover new music, find local
               artists, and keep your long drives interesting with Road Trip DJ.
@@ -33,7 +36,10 @@ class PortfolioContent extends Component {
             siteURL="https://whispering-earth-16314.herokuapp.com/"
             repoURL="https://github.com/cassidygroenendaal/Beacon"
           >
-            <p className="port-content__desc">
+            <p className="port-content__role">
+              Full-Stack Development &#38; Project Management
+            </p>
+            <p className="port-content__overview">
               Beacon is a “meet-up” style app that allows users to create events called
               “beacons,” designed to help people make connections with like-minded
               individuals.
@@ -50,7 +56,8 @@ class PortfolioContent extends Component {
             siteURL="https://cassidygroenendaal.github.io/Gif-Getter/"
             repoURL="https://github.com/cassidygroenendaal/Gif-Getter"
           >
-            <p className="port-content__desc">
+            <p className="port-content__role">Front-End Development</p>
+            <p className="port-content__overview">
               This app lets you browse gifs from Giphy using dynamically created topic
               buttons. You can also favorite gifs for later viewing.
             </p>
@@ -62,7 +69,10 @@ class PortfolioContent extends Component {
             imgURL="/images/project-thumbs/proj-10-bamazon.gif"
             repoURL="https://github.com/cassidygroenendaal/Bamazon"
           >
-            <p className="port-content__desc">
+            <p className="port-content__role">
+              Back-End Development &#38; Database Managment
+            </p>
+            <p className="port-content__overview">
               Bamazon is an Amazon style app that allows users to "shop" for items,
               managers to "stock" items, and supervisors to "create" store departments.
             </p>
@@ -75,7 +85,10 @@ class PortfolioContent extends Component {
             siteURL="https://cassidygroenendaal.github.io/Event-Hunter/"
             repoURL="https://github.com/cassidygroenendaal/Event-Hunter"
           >
-            <p className="port-content__desc">
+            <p className="port-content__role">
+              Front-End Development &#38; Project Management
+            </p>
+            <p className="port-content__overview">
               Event Hunter is an app that uses Ticketmaster to search for events and
               displays their location in Google Maps.
             </p>
@@ -91,7 +104,10 @@ class PortfolioContent extends Component {
             siteURL="https://cassidygroenendaal.github.io/Comic-Scraper/"
             repoURL="https://github.com/cassidygroenendaal/Comic-Scraper"
           >
-            <p className="port-content__desc">
+            <p className="port-content__role">
+              Full-Stack Development &#38; Database Managment
+            </p>
+            <p className="port-content__overview">
               This app scrapes comic titles from a webcomic site and allows you to add
               personal notes to each comic, such as "Must read later!"
             </p>
