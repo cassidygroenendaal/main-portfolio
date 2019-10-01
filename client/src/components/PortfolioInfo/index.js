@@ -4,8 +4,7 @@ function PortfolioInfo(props) {
   return (
     <article data-project={props.projectNum} className="port-content__item">
       <h3 className="port-content__title">{props.title}</h3>
-      {props.children}
-      <div className="btn-group">
+      <div className="btn-group d-block mb-4">
         {props.siteURL ? (
           <a
             className="btn btn-primary"
@@ -25,6 +24,8 @@ function PortfolioInfo(props) {
           Code
         </a>
       </div>
+      <img className="port-content__img" src={props.imgURL} alt={props.title}/>
+      {props.children}
     </article>
   );
 }
