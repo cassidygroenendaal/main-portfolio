@@ -7,7 +7,7 @@ function PortfolioInfo(props) {
       <div className="btn-group d-block mb-4">
         {props.siteURL ? (
           <a
-            className="btn btn-primary"
+            className="btn btn-outline-primary"
             href={props.siteURL}
             target="_blank"
             rel="noopener noreferrer"
@@ -16,7 +16,7 @@ function PortfolioInfo(props) {
           </a>
         ) : null}
         <a
-          className="btn btn-success"
+          className="btn btn-outline-success"
           href={props.repoURL}
           target="_blank"
           rel="noopener noreferrer"

@@ -227,39 +227,40 @@ body {
 }
 
 /* Portfolio Button Links */
-.btn-primary {
-  background: #b84af7;
+.btn-outline-primary {
+  /* background: #b84af7; */
   border-color: #b84af7;
+  color: #b84af7;
 }
 
-.btn-primary:hover,
-.btn-primary:focus {
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
   background: #8d36c0;
   border-color: #8d36c0;
   box-shadow: 0 0 0 0.2rem #8d36c080;
 }
 
-.btn-primary:not(:disabled):not(.disabled):active {
+.btn-outline-primary:not(:disabled):not(.disabled):active {
   background: #66268b;
   border-color: #66268b;
   box-shadow: 0 0 0 0.2rem #66268b80 !important;
 }
 
-.btn-success {
-  background: #9ef74a;
+.btn-outline-success {
+  /* background: #9ef74a; */
   border-color: #9ef74a;
-  color: #000;
+  color: #9ef74a;
 }
 
-.btn-success:hover,
-.btn-success:focus {
+.btn-outline-success:hover,
+.btn-outline-success:focus {
   color: #fff;
   background: #70b430;
   border-color: #70b430;
   box-shadow: 0 0 0 0.2rem #70b43080;
 }
 
-.btn-success:not(:disabled):not(.disabled):active {
+.btn-outline-success:not(:disabled):not(.disabled):active {
   background: #4e801f;
   border-color: #4e801f;
   box-shadow: 0 0 0 0.2rem #4e801f80 !important;
