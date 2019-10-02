@@ -113,13 +113,13 @@ class HeroSection extends Component {
 			<section className="hero" onMouseMove={this.onMouseMove}>
 				<div className="hero__contents h-100 d-flex align-items-center mx-5">
 					<div>
-						<h1 className="display-1 text-left">
+						<h1 className="hero__title text-left">
 							I'm{' '}
 							<span className="hero__contents--green">
 								Cassidy Groenendaal
 							</span>
 						</h1>
-						<h1 className="display-2 text-left">
+						<h1 className="hero__title text-left">
 							I bring{' '}
 							<span className="hero__contents--green">art</span>{' '}
 							<span className="hero__contents--purple">+</span>{' '}

@@ -52,6 +52,11 @@ body {
   position: relative;
 }
 
+.hero__title {
+  font-size: 3rem;
+  font-weight: 300;
+}
+
 .hero__contents--green {
   color: #9ef74a;
 }
@@ -373,27 +378,40 @@ body {
 
 .info__title {
   border-bottom: 2px solid;
-  padding: 0.3em 1em;
+  padding: 0.1em 0.6em;
+}
+
+.about,
+.contact {
+  /* height: 675px; */
+  width: 100%;
+  padding: 8%;
+  font-size: 1.1em;
 }
 
 /********      About     ********/
 .about {
   background: #fff;
-  min-height: 17.5em;
-  height: 40vh;
+  height: 18em;
 }
 
 .about__title {
   border-color: #b84af7;
+  display: inline-block;
+  margin-bottom: 0.4em;
 }
 
 /********     Contact    ********/
 .contact {
   background: #2e2e2e;
-  min-height: 17.5em;
-  height: 40vh;
   color: #fff;
-  font-size: 1.2em;
+  min-height: 15em;
+}
+
+.contact__title {
+  border-color: #9ef74a;
+  display: inline-block;
+  margin-bottom: 0.4em;
 }
 
 .contact__item {
@@ -425,6 +443,30 @@ body {
   margin-right: 0.6em;
 }
 
-.contact__title {
-  border-color: #9ef74a;
+
+@media (min-width: 576px) {
+  .hero__title {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero__title {
+    font-size: 5rem;
+  }
+}
+
+
+@media (min-width: 992px) {
+
+  .about,
+  .contact {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero__title {
+    font-size: 6rem;
+  }
 }
