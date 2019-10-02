@@ -87,7 +87,9 @@ class PortfolioContent extends Component {
               <ul className="port-content__list-tools">
                 <li>HTML</li>
                 <li>CSS</li>
+                <li>JavaScript</li>
                 <li>jQuery</li>
+                <li>AJAX</li>
               </ul>
             </div>
           </PortInfo>
@@ -144,7 +146,7 @@ class PortfolioContent extends Component {
             title="Comic Scraper"
             projectNum={6}
             imgURL="/images/project-thumbs/proj-14-scraper.png"
-            siteURL="https://cassidygroenendaal.github.io/Comic-Scraper/"
+            siteURL="https://agile-fortress-80352.herokuapp.com/"
             repoURL="https://github.com/cassidygroenendaal/Comic-Scraper"
           >
             <p className="port-content__role">
@@ -158,8 +160,8 @@ class PortfolioContent extends Component {
               <h5 className="port-content__tools-header">Tools</h5>
               <ul className="port-content__list-tools">
                 <li>Handlebars</li>
-                <li>Express</li>
                 <li>Node</li>
+                <li>Express</li>
                 <li>MongoDB</li>
                 <li>Mongoose</li>
                 <li>Axios</li>
