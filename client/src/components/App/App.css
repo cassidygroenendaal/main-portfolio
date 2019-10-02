@@ -230,9 +230,9 @@ body {
 
 /* Portfolio Button Links */
 .btn-outline-primary {
-  /* background: #b84af7; */
+  background: #2e2e2e;
   border-color: #b84af7;
-  color: #b84af7;
+  color: #fff;
   display: inline-block;
 }
 
@@ -250,9 +250,9 @@ body {
 }
 
 .btn-outline-success {
-  /* background: #9ef74a; */
+  background: #2e2e2e;
   border-color: #9ef74a;
-  color: #9ef74a;
+  color: #fff;
   display: inline-block;
 }
 
@@ -326,8 +326,8 @@ body {
 
 .port-content__img {
   display: block;
-  width: 100%;
-  margin-bottom: 1.6em;
+  width: 90%;
+  margin: 0 auto 1.6em;
 }
 
 .port-content__role {
@@ -340,7 +340,33 @@ body {
 }
 
 .port-content__list-tools {
-  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.port-content__list-tools li {
+  display: inline-block;
+  padding: 0.4em 1em;
+  position: relative;
+}
+
+.port-content__list-tools li::after {
+  position: absolute;
+  right: 0;
+  top: 10%;
+  display: block;
+  content: "";
+  background: #2e2e2e70;
+  width: 2px;
+  height: 80%;
+}
+
+.port-content__list-tools li:last-of-type::after {
+  display: none;
 }
 
 .port-content__item {
@@ -350,7 +376,7 @@ body {
   overflow: hidden;
   height: 0;
   opacity: 0;
-  padding: 60px 60px 80px 60px;
+  padding: 60px 18% 60px 18%;
   pointer-events: none;
   /* font-size: 0.85em; */
 }
@@ -476,7 +502,6 @@ body {
   margin-right: 0.6em;
 }
 
-
 @media (min-width: 576px) {
   .hero__title {
     font-size: 4rem;
@@ -489,9 +514,7 @@ body {
   }
 }
 
-
 @media (min-width: 992px) {
-
   .about,
   .contact {
     height: 300px;
