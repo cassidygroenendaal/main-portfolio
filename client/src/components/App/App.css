@@ -322,7 +322,11 @@ body {
 .port-content__img {
   display: block;
   width: 100%;
-  margin-bottom: 2em;
+  margin-bottom: 1.6em;
+}
+
+.port-content__role {
+  font-weight: 600;
 }
 
 .port-content__tools {
