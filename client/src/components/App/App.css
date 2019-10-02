@@ -54,7 +54,7 @@ body {
 
 .hero__chevron {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   left: 50%;
   font-size: 2.4rem;
   transform: translateX(-50%);

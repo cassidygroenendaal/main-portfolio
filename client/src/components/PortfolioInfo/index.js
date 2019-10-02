@@ -3,7 +3,7 @@ import React from "react";
 function PortfolioInfo(props) {
   return (
     <article data-project={props.projectNum} className="port-content__item">
-      <h3 className="port-content__title">{props.title}</h3>
+      <h4 className="port-content__title">{props.title}</h4>
       <div className="btn-group d-block mb-4">
         {props.siteURL ? (
           <a
