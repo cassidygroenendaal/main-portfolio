@@ -200,7 +200,7 @@ class PortfolioSection extends Component {
   render() {
     return (
       <div className="portfolio">
-        <h1 className="display-4 mb-5 port-main__title">My Work</h1>
+        <h1 className="mb-5 port-main__title">My Work</h1>
         <div className="port-main">
           <PortGrid onTileClick={this.clickTile} />
           <PortContent onCloseClick={this.closeContent} />
