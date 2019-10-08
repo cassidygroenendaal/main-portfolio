@@ -20,7 +20,7 @@ function PortfolioTile(props) {
 				/>
 				<div className="port-item__overlay d-flex flex-column justify-content-center align-items-center">
 					<h5 className="overlay__title">{props.title}</h5>
-					<p className="overlay__text">Read More...</p>
+					<p className="overlay__text">Click To Read More...</p>
 				</div>
 				<div className="port-item__dummy-overlay"></div>
 				{/* </Link> */}
