@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 
 function PortfolioTile(props) {
 	return (
@@ -9,10 +8,6 @@ function PortfolioTile(props) {
 				onClick={props.onClick}
 				data-project={props.projectNum}
 			>
-				{/* <Link
-				to={`/code/project/${props.projectNum}`}
-				className="d-block port-item"
-			> */}
 				<img
 					className="port-item__image"
 					src={props.imgURL}
@@ -23,7 +18,6 @@ function PortfolioTile(props) {
 					<p className="overlay__text">Click To Read More...</p>
 				</div>
 				<div className="port-item__dummy-overlay"></div>
-				{/* </Link> */}
 			</div>
 		</div>
 	);
