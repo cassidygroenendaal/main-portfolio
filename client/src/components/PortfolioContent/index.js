@@ -12,7 +12,7 @@ class PortfolioContent extends Component {
           <PortInfo
             title="Road Trip DJ"
             projectNum={1}
-            imgURL="/images/project-thumbs/proj-15-rtdj.png"
+            imgURL="/images/project-thumbs/RTDJ.png"
             siteURL="https://glacial-savannah-65289.herokuapp.com/"
             repoURL="https://github.com/Tim1986/RoadTripDJ"
           >
@@ -54,7 +54,7 @@ class PortfolioContent extends Component {
           <PortInfo
             title="Beacon"
             projectNum={2}
-            imgURL="/images/project-thumbs/proj-13-beacon.png"
+            imgURL="/images/project-thumbs/Beacon.png"
             siteURL="https://whispering-earth-16314.herokuapp.com/"
             repoURL="https://github.com/cassidygroenendaal/Beacon"
           >
@@ -91,7 +91,7 @@ class PortfolioContent extends Component {
           <PortInfo
             title="Gif Getter"
             projectNum={3}
-            imgURL="/images/project-thumbs/proj-05-Giphy-API.PNG"
+            imgURL="/images/project-thumbs/Gif-Getter.PNG"
             siteURL="https://cassidygroenendaal.github.io/Gif-Getter/"
             repoURL="https://github.com/cassidygroenendaal/Gif-Getter"
           >
@@ -117,7 +117,7 @@ class PortfolioContent extends Component {
           <PortInfo
             title="Bamazon"
             projectNum={4}
-            imgURL="/images/project-thumbs/proj-10-bamazon.gif"
+            imgURL="/images/project-thumbs/Bamazon.gif"
             repoURL="https://github.com/cassidygroenendaal/Bamazon"
           >
             <p className="port-content__role">
@@ -143,7 +143,7 @@ class PortfolioContent extends Component {
           <PortInfo
             title="Event Hunter"
             projectNum={5}
-            imgURL="/images/project-thumbs/proj-07-event-hunter.PNG"
+            imgURL="/images/project-thumbs/Event-Hunter.PNG"
             siteURL="https://cassidygroenendaal.github.io/Event-Hunter/"
             repoURL="https://github.com/cassidygroenendaal/Event-Hunter"
           >
@@ -174,7 +174,7 @@ class PortfolioContent extends Component {
           <PortInfo
             title="Comic Scraper"
             projectNum={6}
-            imgURL="/images/project-thumbs/proj-14-scraper.png"
+            imgURL="/images/project-thumbs/Comic-Scraper.png"
             siteURL="https://safe-garden-35398.herokuapp.com/"
             repoURL="https://github.com/cassidygroenendaal/Comic-Scraper"
           >
