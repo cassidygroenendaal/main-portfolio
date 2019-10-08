@@ -231,7 +231,7 @@ body {
 /* Portfolio Button Links */
 .btn-outline-primary {
   background: #2e2e2e;
-  border-color: #b84af7;
+  border-color: #2e2e2e;
   color: #fff;
   display: inline-block;
 }
@@ -251,7 +251,7 @@ body {
 
 .btn-outline-success {
   background: #2e2e2e;
-  border-color: #9ef74a;
+  border-color: #2e2e2e;
   color: #fff;
   display: inline-block;
 }
