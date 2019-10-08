@@ -175,7 +175,7 @@ class PortfolioContent extends Component {
             title="Comic Scraper"
             projectNum={6}
             imgURL="/images/project-thumbs/proj-14-scraper.png"
-            siteURL="https://agile-fortress-80352.herokuapp.com/"
+            siteURL="https://safe-garden-35398.herokuapp.com/"
             repoURL="https://github.com/cassidygroenendaal/Comic-Scraper"
           >
             <p className="port-content__role">
