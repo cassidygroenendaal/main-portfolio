@@ -1,33 +1,33 @@
-import React from "react";
+import React from 'react';
 
-function PortfolioInfo(props) {
+const PortfolioInfo = ({ children, title, imgURL, projectNum, siteURL, repoURL }) => {
   return (
-    <article data-project={props.projectNum} className="port-content__item">
-      <h4 className="port-content__title">{props.title}</h4>
-      <div className="button-group d-block mb-4">
-        {props.siteURL ? (
+    <article data-project={projectNum} className='port-content__item'>
+      <h4 className='port-content__title'>{title}</h4>
+      <div className='button-group d-block mb-4'>
+        {siteURL ? (
           <a
-            className="btn btn-outline-primary"
-            href={props.siteURL}
-            target="_blank"
-            rel="noopener noreferrer"
+            className='btn btn-outline-primary'
+            href={siteURL}
+            target='_blank'
+            rel='noopener noreferrer'
           >
             Website
           </a>
         ) : null}
         <a
-          className="btn btn-outline-success ml-2"
-          href={props.repoURL}
-          target="_blank"
-          rel="noopener noreferrer"
+          className='btn btn-outline-success ml-2'
+          href={repoURL}
+          target='_blank'
+          rel='noopener noreferrer'
         >
           Code
         </a>
       </div>
-      <img className="port-content__img" src={props.imgURL} alt={props.title}/>
-      {props.children}
+      <img className='port-content__img' src={imgURL} alt={title} />
+      {children}
     </article>
   );
-}
+};
 
 export default PortfolioInfo;
