@@ -502,6 +502,16 @@ body {
   margin-right: 0.6em;
 }
 
+/******** Crossword ********/
+
+.cw__cell {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+/******** Media Queries ********/
+
 @media (min-width: 576px) {
   .hero__title {
     font-size: 4rem;

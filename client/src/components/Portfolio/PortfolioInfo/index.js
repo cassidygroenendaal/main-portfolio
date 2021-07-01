@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PortfolioInfo = ({ children, title, imgURL, projectNum, siteURL, repoURL }) => {
+const PortfolioInfo = ({ children, title, imgURL, projectNum, siteURL, repoURL, sameTab}) => {
   return (
     <article data-project={projectNum} className='port-content__item'>
       <h4 className='port-content__title'>{title}</h4>
@@ -9,10 +9,10 @@ const PortfolioInfo = ({ children, title, imgURL, projectNum, siteURL, repoURL }
           <a
             className='btn btn-outline-primary'
             href={siteURL}
-            target='_blank'
+            target={sameTab ? '_self' : '_blank' }
             rel='noopener noreferrer'
           >
-            Website
+            See It In Action
           </a>
         ) : null}
         <a

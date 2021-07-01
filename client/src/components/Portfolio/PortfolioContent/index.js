@@ -116,10 +116,11 @@ const PortfolioContent = ({ onCloseClick }) => {
         
         {/* Crossword Puzzler */}
         <PortfolioInfo
+          sameTab
           title='Crossword Puzzler'
           projectNum={4}
           imgURL='/images/project-thumbs/Gif-Getter.PNG'
-          siteURL='https://cassidygroenendaal.github.io/Gif-Getter/'
+          siteURL='/p/Crossword-Puzzler'
           repoURL='https://github.com/cassidygroenendaal/Gif-Getter'
         >
           <p className='port-content__role'>Front-End Development</p>
@@ -136,8 +137,7 @@ const PortfolioContent = ({ onCloseClick }) => {
               <li>HTML5</li>
               <li>CSS3</li>
               <li>JavaScript</li>
-              <li>jQuery</li>
-              <li>AJAX</li>
+              <li>React</li>
             </ul>
           </div>
         </PortfolioInfo>

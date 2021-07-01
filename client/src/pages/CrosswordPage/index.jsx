@@ -1,11 +1,13 @@
 import React from 'react';
 
-const Crossword = () => {
+import { CrosswordContainer } from '../../components/Crossword';
+
+const CrosswordPage = () => {
   return (
     <div>
-      <h1>Hi</h1>
+      <CrosswordContainer />
     </div>
   );
 };
 
-export default Crossword;
+export default CrosswordPage;
