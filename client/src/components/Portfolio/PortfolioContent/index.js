@@ -1,12 +1,13 @@
 import React from 'react';
 
-import PortInfo from '../../components/PortfolioInfo';
+import { PortfolioInfo } from '../';
 
 const PortfolioContent = ({ onCloseClick }) => {
   return (
     <div className='row no-gutters port-content'>
       <div>
-        <PortInfo
+        {/* Road Trip DJ */}
+        <PortfolioInfo
           title='Road Trip DJ'
           projectNum={1}
           imgURL='/images/project-thumbs/RTDJ.png'
@@ -46,8 +47,10 @@ const PortfolioContent = ({ onCloseClick }) => {
               <li>WikiJS</li>
             </ul>
           </div>
-        </PortInfo>
-        <PortInfo
+        </PortfolioInfo>
+        
+        {/* Beacon */}
+        <PortfolioInfo
           title='Beacon'
           projectNum={2}
           imgURL='/images/project-thumbs/Beacon.png'
@@ -83,8 +86,10 @@ const PortfolioContent = ({ onCloseClick }) => {
               <li>Google Maps API</li>
             </ul>
           </div>
-        </PortInfo>
-        <PortInfo
+        </PortfolioInfo>
+        
+        {/* ACNH Guide */}
+        <PortfolioInfo
           title='ACNH Collecting Guide'
           projectNum={3}
           imgURL='/images/project-thumbs/acnh-desktop.jpg'
@@ -107,9 +112,11 @@ const PortfolioContent = ({ onCloseClick }) => {
               <li>HTML5 Geolocation API</li>
             </ul>
           </div>
-        </PortInfo>
-        <PortInfo
-          title='Gif Getter'
+        </PortfolioInfo>
+        
+        {/* Crossword Puzzler */}
+        <PortfolioInfo
+          title='Crossword Puzzler'
           projectNum={4}
           imgURL='/images/project-thumbs/Gif-Getter.PNG'
           siteURL='https://cassidygroenendaal.github.io/Gif-Getter/'
@@ -133,8 +140,10 @@ const PortfolioContent = ({ onCloseClick }) => {
               <li>AJAX</li>
             </ul>
           </div>
-        </PortInfo>
-        <PortInfo
+        </PortfolioInfo>
+        
+        {/* Bamazon */}
+        <PortfolioInfo
           title='Bamazon'
           projectNum={5}
           imgURL='/images/project-thumbs/Bamazon.gif'
@@ -159,8 +168,10 @@ const PortfolioContent = ({ onCloseClick }) => {
               <li>Inquirer</li>
             </ul>
           </div>
-        </PortInfo>
-        <PortInfo
+        </PortfolioInfo>
+        
+        {/* Event Hunter */}
+        <PortfolioInfo
           title='Event Hunter'
           projectNum={6}
           imgURL='/images/project-thumbs/Event-Hunter.PNG'
@@ -190,7 +201,7 @@ const PortfolioContent = ({ onCloseClick }) => {
               <li>Ticketmaster API</li>
             </ul>
           </div>
-        </PortInfo>
+        </PortfolioInfo>
       </div>
       <button className='close-button' onClick={onCloseClick}>
         <i className='fas fa-times' />

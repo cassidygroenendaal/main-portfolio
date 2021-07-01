@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import PortGrid from '../../components/PortfolioGrid';
-import PortContent from '../../components/PortfolioContent';
+import { PortfolioGrid, PortfolioContent } from '../';
 
 const PortfolioSection = () => {
   const [currentItem, setCurrentItem] = useState(null);
@@ -212,8 +211,8 @@ const PortfolioSection = () => {
     <div className='portfolio'>
       <h1 className='mb-5 port-main__title'>My Work</h1>
       <div className='port-main'>
-        <PortGrid onTileClick={clickTile} />
-        <PortContent onCloseClick={closeContent} />
+        <PortfolioGrid onTileClick={clickTile} />
+        <PortfolioContent onCloseClick={closeContent} />
       </div>
     </div>
   );
