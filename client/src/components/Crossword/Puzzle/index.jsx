@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Word } from '../';
 
-const Puzzle = ({ words }) => {
-  const [selectedWord, setSelectedWord] = useState(-1);
+const Puzzle = ({ words, selectedWord, setSelectedWord }) => {
 
   const selectWord = index => {
     setSelectedWord(index);

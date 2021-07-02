@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import API from '../../../lib/API';
 
-import { Puzzle } from '../';
+import { Puzzle, ClueContainer } from '../';
 
 const CrosswordContainer = () => {
   const [puzzleWords, setPuzzleWords] = useState([]);
   const [puzzleTheme, setPuzzleTheme] = useState('');
+  const [selectedWord, setSelectedWord] = useState(-1);
 
   const puzzleThemes = [
     'forest',
@@ -34,21 +35,7 @@ const CrosswordContainer = () => {
         generatedWords = data;
       });
 
-    // if (generatedWords.length > limit) {
-      // const uniqueWords = generatedWords.filter((v, i, a) => a.indexOf(v) === i);
-      // const selectedWords = [];
-
-      // while (selectedWords.length < limit) {
-      //   const randIndex = Math.floor(Math.random() * uniqueWords.length);
-      //   const newWord = uniqueWords[randIndex];
-      //   uniqueWords.splice(randIndex, 1);
-      //   selectedWords.push(newWord);
-      // }
-
-      // getDefinitions(selectedWords);
-    // } else {
-      getDefinitions(generatedWords.filter((v, i, a) => a.indexOf(v) === i), limit);
-    // }
+    getDefinitions(generatedWords.filter((v, i, a) => a.indexOf(v) === i), limit);
   };
 
   const getDefinitions = async (wordsToDefine, limit) => {
@@ -76,7 +63,15 @@ const CrosswordContainer = () => {
     <div>
       <h1>{puzzleTheme}</h1>
       <button onClick={generateCrossword}>Generate Crossword</button>
-      <Puzzle words={puzzleWords} />
+      <Puzzle
+        words={puzzleWords}
+        selectedWord={selectedWord}
+        setSelectedWord={setSelectedWord}
+      />
+      <ClueContainer
+        clues={puzzleWords}
+        selectedClue={selectedWord}
+      />
     </div>
   );
 };

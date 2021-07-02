@@ -10,10 +10,7 @@ export default {
     getDefinitions : function(wordsToDefine, limit) {
       return axios
         .post(`/api/cw/definitions/`, { wordsToDefine, limit })
-        .then(results => {
-          console.log('from API:', results);
-          return results.data;
-        });
+        .then(results => results.data);
     }
   }
 };

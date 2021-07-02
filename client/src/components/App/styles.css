@@ -505,6 +505,11 @@ body {
 
 /******** Crossword ********/
 
+.hidden {
+  visibility: hidden;
+  display: none;
+}
+
 .cw__cell-wrapper {
   display: inline-block;
 }
