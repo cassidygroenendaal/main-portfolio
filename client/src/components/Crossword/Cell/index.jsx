@@ -12,19 +12,16 @@ const Cell = ({
 }) => {
   const [isFilledIn, setIsFilledIn] = useState(false);
 
-  const hasVerticalNeighboors = false;
-  const hasHorizontalNeighboors = true;
+  // const hasVerticalNeighboors = false;
+  // const hasHorizontalNeighboors = true;
 
   const handleKeyUp = e => {
     if (!isSelected) return;
-
-    // if keys are arrow keys, navigate with them
-    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {}
-
+    
     // If keys are alphabetic, try to enter them
     if (e.key === 'Backspace') {
       handleChange('', index);
-    } else if (e.key) {
+    } else {
       handleChange(e.key.toUpperCase(), index);
     }
   };
@@ -45,6 +42,8 @@ const Cell = ({
   const cellClass = isSelected
     ? 'cw__cell--selected'
     : isWordSelected ? 'cw__word--selected' : '';
+
+    // console.log(`Cell for letter ${letter} is${isSelected ? ' ' : ' not'} selected`)
 
   return (
     <div className='cw__cell-wrapper'>

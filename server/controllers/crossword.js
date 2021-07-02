@@ -28,15 +28,23 @@ router.post('/definitions/', async (req, res) => {
         .env.MERRIAM_WEBSTER_KEY}`
     })
       .then(response => {
-        if (!response.data[0].shortdef) return (success = false);
+        if (!response.data[0].shortdef) {
+          success = false;
+          return;
+        }
 
-        const words = wordToDefine.word.toUpperCase().split(' '),
-          letters = words.map(w => w.split(''));
+        const words = wordToDefine.word.toUpperCase().split(' ');
+        const wordLetters = words.map(w => w.split(''));
+        const allLetters = [];
+
+        wordLetters.forEach(array => allLetters.push(...array));
 
         return {
+          // number      : selectedWords.length + 1,
           words,
-          letters,
-          clue    : response.data[0].shortdef[0]
+          wordLetters,
+          allLetters,
+          clue        : response.data[0].shortdef[0]
         };
       })
       .catch(err => console.log(err));

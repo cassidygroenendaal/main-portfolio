@@ -17,7 +17,7 @@ const Puzzle = ({ puzzleWords, selectedWord, setSelectedWord }) => {
       {puzzleWords.map((w, i) => (
         <Word
           handleGuessWordCorrectly={guessWordCorrectly}
-          puzzleWords={w}
+          puzzleWord={w}
           handleSelectWord={selectWord}
           isSelected={i === selectedWord}
           key={`${w.words.join('')}-${i}`}

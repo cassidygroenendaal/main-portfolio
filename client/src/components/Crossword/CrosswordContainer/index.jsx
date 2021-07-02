@@ -44,7 +44,7 @@ const CrosswordContainer = () => {
       .then(response => response.words)
       .catch(err => console.log(err));
 
-      console.log(wordsToSet)
+    console.log(wordsToSet);
     setPuzzleWords(wordsToSet);
   };
 
@@ -64,15 +64,16 @@ const CrosswordContainer = () => {
     <div>
       <h1>{puzzleTheme}</h1>
       <button onClick={generateCrossword}>Generate Crossword</button>
-      <Puzzle
-        puzzleWords={puzzleWords}
-        selectedWord={selectedWord}
-        setSelectedWord={setSelectedWord}
-      />
-      <ClueContainer
-        clues={puzzleWords}
-        selectedClue={selectedWord}
-      />
+      {puzzleWords.length > 0 && (
+        <div>
+          <Puzzle
+            puzzleWords={puzzleWords}
+            selectedWord={selectedWord}
+            setSelectedWord={setSelectedWord}
+          />
+          <ClueContainer clues={puzzleWords} selectedClue={selectedWord} />
+        </div>
+      )}
     </div>
   );
 };
