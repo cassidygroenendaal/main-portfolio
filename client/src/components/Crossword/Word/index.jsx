@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Cell } from '../';
 
 const Word = ({
-  word,
+  puzzleWords,
   index,
   isSelected,
   handleSelectWord,
@@ -12,8 +12,6 @@ const Word = ({
   const [selectedCell, setSelectedCell] = useState(-1);
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [isWordGuessed, setIsWordGuessed] = useState(false);
-
-  const solutionArray = word.split('');
 
   const selectCell = cellIndex => {
     if (!isSelected) {
@@ -34,14 +32,14 @@ const Word = ({
     const guessedArray = [...guessedLetters];
     const newGuess = key.trim().split('')[0];
 
-    // Handle if user entered a space
-    if (newGuess === undefined) return;
+    // // Handle if user entered a space
+    // if (newGuess === undefined) return;
 
     // Set the new guess into the guessedLetters array
     guessedArray.splice(index, 1, newGuess);
     setGuessedLetters(guessedArray);
 
-    if (index + 1 < solutionArray.length) {
+    if (index + 1 < puzzleWords.letters.length) {
       setSelectedCell(index + 1);
     } else {
       setSelectedCell(-1);
@@ -51,7 +49,7 @@ const Word = ({
 
   const checkSolution = guessedArray => {
     let isGuessCorrect = true;
-    solutionArray.forEach((letter, i) => {
+    puzzleWords.letters.forEach((letter, i) => {
       if (letter !== guessedArray[i]) isGuessCorrect = false;
     });
 
@@ -62,13 +60,13 @@ const Word = ({
   };
 
   useEffect(() => {
-    setGuessedLetters(solutionArray.map(letter => ''));
+    setGuessedLetters(puzzleWords.letters.map(letter => ''));
     // eslint-disable-next-line
   }, []);
 
   return (
     <div>
-      {solutionArray.map((letter, i) => (
+      {puzzleWords.letters.map((letter, i) => (
         <Cell
           isWordSelected={isSelected}
           isSelected={isSelected && i === selectedCell}

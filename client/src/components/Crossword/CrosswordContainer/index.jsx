@@ -44,6 +44,7 @@ const CrosswordContainer = () => {
       .then(response => response.words)
       .catch(err => console.log(err));
 
+      console.log(wordsToSet)
     setPuzzleWords(wordsToSet);
   };
 
@@ -64,7 +65,7 @@ const CrosswordContainer = () => {
       <h1>{puzzleTheme}</h1>
       <button onClick={generateCrossword}>Generate Crossword</button>
       <Puzzle
-        words={puzzleWords}
+        puzzleWords={puzzleWords}
         selectedWord={selectedWord}
         setSelectedWord={setSelectedWord}
       />

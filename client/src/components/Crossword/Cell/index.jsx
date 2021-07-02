@@ -8,14 +8,25 @@ const Cell = ({
   isSelected,
   isWordGuessed,
   handleChange,
-  handleClick
+  handleClick,
 }) => {
   const [isFilledIn, setIsFilledIn] = useState(false);
+
+  const hasVerticalNeighboors = false;
+  const hasHorizontalNeighboors = true;
 
   const handleKeyUp = e => {
     if (!isSelected) return;
 
-    handleChange(e.key, index);
+    // if keys are arrow keys, navigate with them
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {}
+
+    // If keys are alphabetic, try to enter them
+    if (e.key === 'Backspace') {
+      handleChange('', index);
+    } else if (e.key) {
+      handleChange(e.key.toUpperCase(), index);
+    }
   };
 
   useEffect(() => {

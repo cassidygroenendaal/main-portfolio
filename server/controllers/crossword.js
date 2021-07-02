@@ -28,8 +28,16 @@ router.post('/definitions/', async (req, res) => {
         .env.MERRIAM_WEBSTER_KEY}`
     })
       .then(response => {
-        if (!response.data[0].shortdef) success = false;
-        return { word: wordToDefine.word, clue: response.data[0].shortdef[0] };
+        if (!response.data[0].shortdef) return (success = false);
+
+        const words = wordToDefine.word.toUpperCase().split(' '),
+          letters = words.map(w => w.split(''));
+
+        return {
+          words,
+          letters,
+          clue    : response.data[0].shortdef[0]
+        };
       })
       .catch(err => console.log(err));
 
@@ -57,7 +65,6 @@ router.post('/definitions/', async (req, res) => {
   //   console.log(response);
   //   res.json({ words: response });
   // });
-
 });
 
 module.exports = router;

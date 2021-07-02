@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Word } from '../';
 
-const Puzzle = ({ words, selectedWord, setSelectedWord }) => {
+const Puzzle = ({ puzzleWords, selectedWord, setSelectedWord }) => {
 
   const selectWord = index => {
     setSelectedWord(index);
@@ -14,13 +14,13 @@ const Puzzle = ({ words, selectedWord, setSelectedWord }) => {
 
   return (
     <div>
-      {words.map((w, i) => (
+      {puzzleWords.map((w, i) => (
         <Word
           handleGuessWordCorrectly={guessWordCorrectly}
-          word={w.word}
+          puzzleWords={w}
           handleSelectWord={selectWord}
           isSelected={i === selectedWord}
-          key={w.word}
+          key={`${w.words.join('')}-${i}`}
           index={i}
         />
       ))}
