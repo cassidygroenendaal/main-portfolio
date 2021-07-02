@@ -7,7 +7,7 @@
 const path = require('path');
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config({
-    path: path.resolve(__dirname, '.env')
+    path : path.resolve(__dirname, '.env')
   });
 }
 
@@ -33,6 +33,8 @@ if (process.env.NODE_ENV === 'production') {
   console.log(`Client build path: ${clientBuildPath}\n`);
   app.use(express.static(clientBuildPath));
 }
+
+app.use('/api', require('./controllers'));
 
 //-- React catch-all ---------------------------------------------------------
 app.get('*', (req, res) => {
