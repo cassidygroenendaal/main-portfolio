@@ -1,13 +1,29 @@
 import React, { useState, useEffect } from 'react';
 
+import API from '../../../lib/API';
+
 import { Puzzle } from '../';
 
 const CrosswordContainer = () => {
   const [puzzleWords, setPuzzleWords] = useState([]);
-  const [puzzleTheme, setPuzzleTheme] = useState('forest');
+  const [puzzleTheme, setPuzzleTheme] = useState('');
+
+  const puzzleThemes = [
+    'forest',
+    'farm',
+    'ocean',
+    'sky',
+    'star',
+    'magic',
+    'animals',
+    'desert'
+  ];
 
   const generateCrossword = () => {
-    generateWordList({ theme: puzzleTheme, limit: 10 });
+    const randIndex = Math.floor(Math.random() * puzzleThemes.length);
+
+    setPuzzleTheme(puzzleThemes[randIndex]);
+    generateWordList({ theme: puzzleThemes[randIndex], limit: 2 });
   };
 
   const generateWordList = async ({ theme, limit }) => {
@@ -18,27 +34,36 @@ const CrosswordContainer = () => {
         generatedWords = data;
       });
 
-    if (generatedWords.length > limit) {
-      const uniqueWords = generatedWords.filter((v, i, a) => a.indexOf(v) === i);
-      const selectedWords = [];
+    // if (generatedWords.length > limit) {
+      // const uniqueWords = generatedWords.filter((v, i, a) => a.indexOf(v) === i);
+      // const selectedWords = [];
 
-      while (selectedWords.length < limit) {
-        const randIndex = Math.floor(Math.random() * uniqueWords.length);
-        const newWord = uniqueWords[randIndex];
-        uniqueWords.splice(randIndex, 1);
-        selectedWords.push(newWord);
-      }
+      // while (selectedWords.length < limit) {
+      //   const randIndex = Math.floor(Math.random() * uniqueWords.length);
+      //   const newWord = uniqueWords[randIndex];
+      //   uniqueWords.splice(randIndex, 1);
+      //   selectedWords.push(newWord);
+      // }
 
-      setPuzzleWords(selectedWords);
-    } else {
-      setPuzzleWords(generatedWords.filter((v, i, a) => a.indexOf(v) === i));
-    }
+      // getDefinitions(selectedWords);
+    // } else {
+      getDefinitions(generatedWords.filter((v, i, a) => a.indexOf(v) === i), limit);
+    // }
+  };
+
+  const getDefinitions = async (wordsToDefine, limit) => {
+    const wordsToSet = await API.Crossword
+      .getDefinitions(wordsToDefine, limit)
+      .then(response => response.words)
+      .catch(err => console.log(err));
+
+    setPuzzleWords(wordsToSet);
   };
 
   const generateIntersections = () => {
     if (puzzleWords.length === 0) return;
 
-    console.log('Generating intersections');
+    // console.log('Generating intersections');
   };
 
   useEffect(

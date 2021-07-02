@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+  height: 100%;
 }
 
 /********      App       ********/
@@ -504,10 +505,32 @@ body {
 
 /******** Crossword ********/
 
+.cw__cell-wrapper {
+  display: inline-block;
+}
+
 .cw__cell {
+  border: 1px lightgrey solid;
   width: 30px;
   height: 30px;
   text-align: center;
+  display: block;
+  background: lightyellow;
+}
+
+.cw__cell--filled {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.cw__word--selected {
+  background: lightblue;
+}
+
+.cw__cell--selected {
+  background: blue;
 }
 
 /******** Media Queries ********/
