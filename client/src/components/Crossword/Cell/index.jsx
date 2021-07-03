@@ -7,28 +7,46 @@ const Cell = ({
   isWordSelected,
   isSelected,
   isWordGuessed,
-  handleChange,
   handleClick,
+  handleEnterLetter,
+  handleDelete,
+  handleNavigate
 }) => {
   const [isFilledIn, setIsFilledIn] = useState(false);
 
-  // const hasVerticalNeighboors = false;
-  // const hasHorizontalNeighboors = true;
+  const isHorizontal = true;
+  // const isIntersection = false;
 
-  const handleKeyUp = e => {
+  const handleKeyDown = e => {
     if (!isSelected) return;
-    
-    // If keys are alphabetic, try to enter them
-    if (e.key === 'Backspace') {
-      handleChange('', index);
-    } else {
-      handleChange(e.key.toUpperCase(), index);
+
+    switch (e.key) {
+      case 'Backspace':
+        handleDelete(index);
+        break;
+      case ' ':
+        console.log("Pressed Spacebar")
+        break;
+      case 'ArrowRight':
+        if (isHorizontal) handleNavigate({ cellIndex: index });
+        break;
+      case 'ArrowDown':
+        if (!isHorizontal) handleNavigate({ cellIndex: index });
+        break;
+      case 'ArrowLeft':
+        if (isHorizontal) handleNavigate({ cellIndex: index, isBackward: true });
+        break;
+      case 'ArrowUp':
+        if (!isHorizontal) handleNavigate({ cellIndex: index, isBackward: true });
+        break;
+      default:
+        handleEnterLetter(e.key.toUpperCase(), index);
     }
   };
 
   useEffect(() => {
-    window.addEventListener('keyup', handleKeyUp);
-    return () => window.removeEventListener('keyup', handleKeyUp);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   });
 
   useEffect(
@@ -42,8 +60,6 @@ const Cell = ({
   const cellClass = isSelected
     ? 'cw__cell--selected'
     : isWordSelected ? 'cw__word--selected' : '';
-
-    // console.log(`Cell for letter ${letter} is${isSelected ? ' ' : ' not'} selected`)
 
   return (
     <div className='cw__cell-wrapper'>

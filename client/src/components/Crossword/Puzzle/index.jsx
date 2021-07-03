@@ -3,7 +3,6 @@ import React from 'react';
 import { Word } from '../';
 
 const Puzzle = ({ puzzleWords, selectedWord, setSelectedWord }) => {
-
   const selectWord = index => {
     setSelectedWord(index);
   };
@@ -16,7 +15,7 @@ const Puzzle = ({ puzzleWords, selectedWord, setSelectedWord }) => {
     <div>
       {puzzleWords.map((w, i) => (
         <Word
-          handleGuessWordCorrectly={guessWordCorrectly}
+          handleGuessedWordCorrectly={guessWordCorrectly}
           puzzleWord={w}
           handleSelectWord={selectWord}
           isSelected={i === selectedWord}
