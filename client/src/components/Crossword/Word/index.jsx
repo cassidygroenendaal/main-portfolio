@@ -16,7 +16,7 @@ const Word = ({
   const selectCell = cellIndex => {
     if (!isSelected) {
       handleSelectWord(index);
-      setSelectedCell(0);
+      setSelectedCell(puzzleWord.firstIndex);
       return;
     }
 
@@ -54,30 +54,60 @@ const Word = ({
     setGuessedLetters(guessedArray);
   };
 
-  const onNavigate = ({ cellIndex, isBackward }) => {
-    console.log('Navigating...');
+  const onNavigate = ({ cellIndex, isBackward, shouldChangeIntersection }) => {
+    if (shouldChangeIntersection) {
+      console.log('Changing intersection...');
+      return;
+    }
 
     moveSelection({ cellIndex, isBackward });
   };
 
   const moveSelection = ({ cellIndex, isBackward }) => {
+    let amountToMove = 1;
+
     if (isBackward) {
-      if (cellIndex - 1 > 0) {
-        setSelectedCell(cellIndex - 1);
+      // Try to move backward
+      if (cellIndex === puzzleWord.firstIndex) return;
+      // find last cell that is alphanumeric
+      let nextCell = -1;
+
+      for (let i = cellIndex - 1; nextCell < 0; i--) {
+        if (puzzleWord.letters[i].isAlphaNum) nextCell = i;
+      }
+
+      amountToMove = cellIndex - nextCell;
+
+      if (cellIndex - amountToMove >= puzzleWord.firstIndex) {
+        setSelectedCell(cellIndex - amountToMove);
       } else {
-        setSelectedCell(0);
+        setSelectedCell(puzzleWord.firstIndex);
       }
     } else {
-      if (cellIndex + 1 < puzzleWord.allLetters.length) {
-        setSelectedCell(cellIndex + 1);
+      // Try to move forward
+      if (cellIndex === puzzleWord.lastIndex) return;
+
+      // find next cell that is alphanumeric
+      let nextCell = -1;
+
+      for (let i = cellIndex + 1; nextCell < 0; i++) {
+        if (puzzleWord.letters[i].isAlphaNum) nextCell = i;
+      }
+
+      amountToMove = nextCell - cellIndex;
+
+      if (cellIndex + amountToMove <= puzzleWord.lastIndex) {
+        setSelectedCell(cellIndex + amountToMove);
+      } else {
+        setSelectedCell(puzzleWord.lastIndex);
       }
     }
   };
 
   const checkSolution = () => {
     let isGuessCorrect = true;
-    puzzleWord.allLetters.forEach((letter, i) => {
-      if (letter !== guessedLetters[i]) isGuessCorrect = false;
+    puzzleWord.letters.forEach((letter, i) => {
+      if (letter.character !== guessedLetters[i]) isGuessCorrect = false;
     });
 
     if (isGuessCorrect) {
@@ -87,7 +117,12 @@ const Word = ({
   };
 
   const clearWord = () => {
-    setGuessedLetters(puzzleWord.allLetters.map(letter => ''));
+    setGuessedLetters(
+      puzzleWord.letters.map(letter => {
+        if (letter.isAlphaNum) return '';
+        else return letter.character;
+      })
+    );
   };
 
   // Reset word on initial load
@@ -114,7 +149,7 @@ const Word = ({
   // Render
   return (
     <div>
-      {puzzleWord.allLetters.map((letter, i) => (
+      {puzzleWord.letters.map((letter, i) => (
         <Cell
           isWordSelected={isSelected}
           isSelected={isSelected && i === selectedCell}
@@ -126,7 +161,7 @@ const Word = ({
           handleDelete={onDelete}
           handleNavigate={onNavigate}
           index={i}
-          key={`${index}-${letter}-${i}`}
+          key={`${index}-${letter.character}-${i}`}
         />
       ))}
     </div>

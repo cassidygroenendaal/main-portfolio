@@ -15,7 +15,7 @@ const Cell = ({
   const [isFilledIn, setIsFilledIn] = useState(false);
 
   const isHorizontal = true;
-  // const isIntersection = false;
+  const isIntersection = false;
 
   const handleKeyDown = e => {
     if (!isSelected) return;
@@ -25,7 +25,8 @@ const Cell = ({
         handleDelete(index);
         break;
       case ' ':
-        console.log("Pressed Spacebar")
+        if (isIntersection)
+          handleNavigate({ cellIndex: index, shouldChangeIntersection: true });
         break;
       case 'ArrowRight':
         if (isHorizontal) handleNavigate({ cellIndex: index });
@@ -40,7 +41,7 @@ const Cell = ({
         if (!isHorizontal) handleNavigate({ cellIndex: index, isBackward: true });
         break;
       default:
-        handleEnterLetter(e.key.toUpperCase(), index);
+        if (/^[a-zA-Z0-9]+$/.test(e.key)) handleEnterLetter(e.key.toUpperCase(), index);
     }
   };
 
@@ -57,6 +58,11 @@ const Cell = ({
     [isWordGuessed]
   );
 
+  useEffect(() => {
+    if (!letter.isAlphaNum) setIsFilledIn(true);
+    // eslint-disable-next-line
+  }, []);
+
   const cellClass = isSelected
     ? 'cw__cell--selected'
     : isWordSelected ? 'cw__word--selected' : '';
@@ -64,7 +70,7 @@ const Cell = ({
   return (
     <div className='cw__cell-wrapper'>
       {isFilledIn ? (
-        <span className='cw__cell--filled'>{letter}</span>
+        <span className='cw__cell--filled'>{letter.character}</span>
       ) : (
         <span
           role='textbox'

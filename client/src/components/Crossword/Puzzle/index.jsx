@@ -13,13 +13,13 @@ const Puzzle = ({ puzzleWords, selectedWord, setSelectedWord }) => {
 
   return (
     <div>
-      {puzzleWords.map((w, i) => (
+      {puzzleWords.map((puzzleWord, i) => (
         <Word
           handleGuessedWordCorrectly={guessWordCorrectly}
-          puzzleWord={w}
+          puzzleWord={puzzleWord}
           handleSelectWord={selectWord}
           isSelected={i === selectedWord}
-          key={`${w.words.join('')}-${i}`}
+          key={`${puzzleWord.word}-${i}`}
           index={i}
         />
       ))}

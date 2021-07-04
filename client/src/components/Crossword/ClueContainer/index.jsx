@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ClueContainer = ({ clues, selectedClue }) => {
+const ClueContainer = ({ puzzleWords, selectedClue }) => {
   return (
     <div>
-      {clues.map((c, i) => (
-        <p className={selectedClue !== i ? 'hidden' : ''} word={c.clue} key={`${c.word}-${i}`} index={i}>
-          {c.clue}
+      {puzzleWords.map((w, i) => (
+        <p className={selectedClue !== i ? 'hidden' : ''} key={`${w.word}-${i}`} index={i}>
+          {w.clue.text} ({w.clue.count.join(', ')})
         </p>
       ))}
     </div>
