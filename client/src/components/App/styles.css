@@ -534,9 +534,18 @@ body {
   background: lightblue;
 }
 
+.cw__word--selected--wrong {
+  background: pink;
+}
+
 .cw__cell--selected {
   background: blue;
 }
+
+.cw__cell--selected--wrong {
+  background: red;
+}
+
 
 /******** Media Queries ********/
 

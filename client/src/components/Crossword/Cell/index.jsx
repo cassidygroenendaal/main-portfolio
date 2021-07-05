@@ -6,7 +6,8 @@ const Cell = ({
   value,
   isWordSelected,
   isSelected,
-  isWordGuessed,
+  isWordRight,
+  isWordWrong,
   handleClick,
   handleEnterLetter,
   handleDelete,
@@ -52,10 +53,10 @@ const Cell = ({
 
   useEffect(
     () => {
-      if (!isFilledIn) setIsFilledIn(isWordGuessed);
+      if (!isFilledIn) setIsFilledIn(isWordRight);
     },
     // eslint-disable-next-line
-    [isWordGuessed]
+    [isWordRight]
   );
 
   useEffect(() => {
@@ -67,6 +68,10 @@ const Cell = ({
     ? 'cw__cell--selected'
     : isWordSelected ? 'cw__word--selected' : '';
 
+  const cellClassWrong = isSelected
+    ? 'cw__cell--selected--wrong'
+    : isWordSelected ? 'cw__word--selected--wrong' : '';
+
   return (
     <div className='cw__cell-wrapper'>
       {isFilledIn ? (
@@ -74,7 +79,7 @@ const Cell = ({
       ) : (
         <span
           role='textbox'
-          className={`cw__cell ${cellClass}`}
+          className={`cw__cell ${isWordWrong ? cellClassWrong : cellClass}`}
           onClick={handleClick}
           data-cell-index={index}
         >
