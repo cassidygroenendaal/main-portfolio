@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-// import API from '../../../lib/API';
-
 import { Puzzle, ClueContainer } from '../';
 
 const CrosswordContainer = () => {
@@ -23,23 +21,37 @@ const CrosswordContainer = () => {
   const testWords = [
     {
       word : 'sky',
-      clue : { text: 'The thing that is blue and hangs between earth and space' }
+      defs : ['a\tThe thing that is blue and hangs between earth and space']
     },
     {
       word : "Flat-screen TV's",
-      clue : { text: 'large items you watch shows on in your living room' }
+      defs : ['a\tlarge items you watch shows on in your living room']
     },
     {
       word : 'Space Station',
-      clue : { text: 'The ISS is one of these' }
+      defs : ['a\tThe ISS is one of these']
     },
     {
       word : 'Space Station',
-      clue : { text: 'The ISS is one of these' }
+      defs : ['a\tThe ISS is one of these']
     },
     {
       word : '"This is a quote"',
-      clue : { text: 'This is a quote' }
+      defs : ['a\tThis is a quote']
+    },
+    {
+      word : 'breed',
+      defs : ['a\tBreed']
+    },
+    {
+      word        : 'bred',
+      defs        : ['a\tBred'],
+      defHeadword : 'breed'
+    },
+    {
+      word        : 'breeding',
+      defs        : ['a\tBreeding'],
+      defHeadword : 'breed'
     }
   ];
 
@@ -51,37 +63,21 @@ const CrosswordContainer = () => {
   };
 
   const generateWordList = async ({ theme, limit }) => {
-    // let generatedWords;
-    // await fetch(`https://api.datamuse.com/words?rel_trg=${theme}`)
-    fetch(`https://api.datamuse.com/words?rel_trg=${theme}`)
+    let generatedWords;
+    await fetch(`https://api.datamuse.com/words?rel_trg=${theme}&md=ds`)
       .then(res => res.json())
       .then(data => {
-        console.log('Data:', data);
-        // generatedWords = data;
+        // console.log(data);
+        generatedWords = data;
       });
-
-    // console.log('Generated Words:', generatedWords);
 
     // Filter out any duplicate words
     const uniqueWords = testWords.filter(
       (item, index) => testWords.findIndex(obj => obj.word === item.word) === index
     );
 
-    const formattedWords = formatWords(uniqueWords);
-    console.log(formattedWords);
-    setPuzzleWords(formattedWords);
-    // getDefinitions(generatedWords.filter((v, i, a) => a.indexOf(v) === i), limit);
+    setPuzzleWords(getFinalWords(uniqueWords, limit));
   };
-
-  // const getDefinitions = async (wordsToDefine, limit) => {
-  //   const wordsToSet = await API.Crossword
-  //     .getDefinitions(wordsToDefine, limit)
-  //     .then(response => response.words)
-  //     .catch(err => console.log(err));
-
-  //   console.log(wordsToSet);
-  //   setPuzzleWords(wordsToSet);
-  // };
 
   const generateIntersections = () => {
     if (puzzleWords.length === 0) return;
@@ -89,10 +85,61 @@ const CrosswordContainer = () => {
     console.log('Generating intersections');
   };
 
+  const getFinalWords = (words, limit) => {
+    const finalWords = [];
+
+    let doGetNewWords = true;
+
+    while (doGetNewWords) {
+      let success = true;
+
+      const randIndex = Math.floor(Math.random() * words.length);
+      const newWord = words[randIndex];
+
+      // Remove selected word so it can't be chosen again, regardless of success
+      words.splice(randIndex, 1);
+
+      // If there is no definition, skip it
+      if (newWord.defs === undefined) {
+        console.log('New Word Def is undefined');
+        success = false;
+      }
+
+      // If the new word is in any way derived to/from another word, skip it
+      if (finalWords.find(existingWord => existingWord.defHeadword === newWord.word)) {
+        console.log('existingWord.defHeadword === newWord.word');
+        success = false;
+      }
+
+      if (
+        finalWords.find(
+          existingWord =>
+            existingWord.defHeadword !== undefined &&
+            existingWord.defHeadword === newWord.defHeadword
+        )
+      ) {
+        console.log('existingWord.defHeadword === newWord.defHeadword');
+        success = false;
+      }
+
+      if (finalWords.find(existingWord => existingWord.word === newWord.defHeadword)) {
+        console.log('existingWord.word === newWord.defHeadword');
+        success = false;
+      }
+
+      if (success) finalWords.push(newWord);
+
+      if (finalWords.length === limit || words.length === 0) doGetNewWords = false;
+    }
+
+    return formatWords(finalWords);
+  };
+
   const formatWords = words =>
     words.map(item => {
       const count = [],
         letters = [],
+        clueText = item.defs !== undefined ? item.defs[0].split('\t')[1] : 'No Clue',
         splitWords = item.word.toUpperCase().split(' '),
         singleWord = splitWords.join('').toUpperCase().split('');
 
@@ -132,7 +179,7 @@ const CrosswordContainer = () => {
       return {
         word       : item.word.toUpperCase(),
         letters,
-        clue       : { ...item.clue, count },
+        clue       : { text: clueText, count },
         firstIndex,
         lastIndex
       };
