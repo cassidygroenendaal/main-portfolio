@@ -11,7 +11,8 @@ const Word = ({
 }) => {
   const [selectedCell, setSelectedCell] = useState(-1);
   const [guessedLetters, setGuessedLetters] = useState([]);
-  const [isWordGuessed, setIsWordGuessed] = useState(false);
+  const [isWordRight, setIsWordRight] = useState(false);
+  const [isWordWrong, setIsWordWrong] = useState(false);
 
   const selectCell = cellIndex => {
     if (!isSelected) {
@@ -30,7 +31,7 @@ const Word = ({
 
   const onEnterLetter = (enteredKey, cellIndex) => {
     const guessedArray = [...guessedLetters];
-    const newGuess = enteredKey.trim().split('')[0];
+    const newGuess = enteredKey;
 
     // Set the new guess into the guessedLetters array
     guessedArray.splice(cellIndex, 1, newGuess);
@@ -45,13 +46,11 @@ const Word = ({
     // Delete current letter if the cell is filled in
     if (guessedLetters[cellIndex]) {
       guessedArray.splice(cellIndex, 1, '');
+      setGuessedLetters(guessedArray);
     } else {
       // Delete the previous letter & move backward
-      guessedArray.splice(cellIndex - 1, 1, '');
-      moveSelection({ cellIndex, isBackward: true });
+      moveSelection({ cellIndex, isBackward: true, isDelete: true });
     }
-
-    setGuessedLetters(guessedArray);
   };
 
   const onNavigate = ({ cellIndex, isBackward, shouldChangeIntersection }) => {
@@ -63,12 +62,17 @@ const Word = ({
     moveSelection({ cellIndex, isBackward });
   };
 
-  const moveSelection = ({ cellIndex, isBackward }) => {
+  const moveSelection = ({ cellIndex, isBackward, isDelete }) => {
+    const guessedArray = [...guessedLetters];
     let amountToMove = 1;
 
     if (isBackward) {
       // Try to move backward
-      if (cellIndex === puzzleWord.firstIndex) return;
+      if (cellIndex === puzzleWord.firstIndex) {
+        if (isDelete) guessedArray.splice(puzzleWord.firstIndex, 1, '');
+        return;
+      }
+
       // find last cell that is alphanumeric
       let nextCell = -1;
 
@@ -79,8 +83,16 @@ const Word = ({
       amountToMove = cellIndex - nextCell;
 
       if (cellIndex - amountToMove >= puzzleWord.firstIndex) {
+        if (isDelete) {
+          guessedArray.splice(cellIndex - amountToMove, 1, '');
+          setGuessedLetters(guessedArray);
+        }
         setSelectedCell(cellIndex - amountToMove);
       } else {
+        if (isDelete) {
+          guessedArray.splice(puzzleWord.firstIndex, 1, '');
+          setGuessedLetters(guessedArray);
+        }
         setSelectedCell(puzzleWord.firstIndex);
       }
     } else {
@@ -106,13 +118,17 @@ const Word = ({
 
   const checkSolution = () => {
     let isGuessCorrect = true;
+
     puzzleWord.letters.forEach((letter, i) => {
       if (letter.character !== guessedLetters[i]) isGuessCorrect = false;
     });
 
     if (isGuessCorrect) {
-      setIsWordGuessed(true);
+      setIsWordWrong(false);
+      setIsWordRight(true);
       handleGuessedWordCorrectly();
+    } else {
+      setIsWordWrong(true);
     }
   };
 
@@ -137,7 +153,10 @@ const Word = ({
       let shouldCheckSolution = true;
 
       guessedLetters.forEach(letter => {
-        if (!letter) shouldCheckSolution = false;
+        if (!letter) {
+          shouldCheckSolution = false;
+          setIsWordWrong(false);
+        }
       });
 
       if (shouldCheckSolution) checkSolution();
@@ -153,7 +172,8 @@ const Word = ({
         <Cell
           isWordSelected={isSelected}
           isSelected={isSelected && i === selectedCell}
-          isWordGuessed={isWordGuessed}
+          isWordRight={isWordRight}
+          isWordWrong={isWordWrong}
           letter={letter}
           value={guessedLetters[i]}
           handleClick={onClickCell}
