@@ -6,33 +6,33 @@ const PortfolioGrid = ({ onTileClick }) => {
   return (
     <div className='row no-gutters port-grid'>
       <PortTile
-        title='Road Trip DJ'
+        title='Bank of America'
         projectNum={1}
-        imgURL='/images/project-thumbs/RTDJ.png'
+        imgURL='/images/project-thumbs/bank-of-america.jpg'
         onClick={onTileClick}
       />
       <PortTile
-        title='Beacon'
+        title='Game Development'
         projectNum={2}
-        imgURL='/images/project-thumbs/Beacon.png'
+        imgURL='/images/project-thumbs/wdg-clip.gif'
+        onClick={onTileClick}
+      />
+      <PortTile
+        title='Pop Star Runner'
+        projectNum={3}
+        imgURL='/images/project-thumbs/pop-star-runner-1.png'
         onClick={onTileClick}
       />
       <PortTile
         title='ACNH Collecting Guide'
-        projectNum={3}
-        imgURL='/images/project-thumbs/acnh-desktop.jpg'
-        onClick={onTileClick}
-      />
-      <PortTile
-        title='Gif Getter'
         projectNum={4}
-        imgURL='/images/project-thumbs/Gif-Getter.PNG'
+        imgURL='/images/project-thumbs/acnh-desktop.png'
         onClick={onTileClick}
       />
       <PortTile
-        title='Bamazon'
+        title='Road Trip DJ'
         projectNum={5}
-        imgURL='/images/project-thumbs/Bamazon.gif'
+        imgURL='/images/project-thumbs/RTDJ.png'
         onClick={onTileClick}
       />
       <PortTile

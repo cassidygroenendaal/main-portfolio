@@ -111,7 +111,7 @@ class HeroSection extends Component {
 	render() {
 		return (
 			<section className="hero" onMouseMove={this.onMouseMove}>
-				<div className="hero__chevron"><i class="fas fa-chevron-down"></i></div>
+				<div className="hero__chevron"><i className="fas fa-chevron-down"></i></div>
 				<div className="hero__contents h-100 d-flex align-items-center mx-5">
 					<div>
 						<h1 className="hero__title text-left">
