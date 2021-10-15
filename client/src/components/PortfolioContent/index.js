@@ -62,7 +62,7 @@ const PortfolioContent = ({ onCloseClick }) => {
           </p>
           <p className='port-content__overview'>
             This is an unnamed action-platformer that I have been collaborating on since
-            June, 2021. I am the sole programmer and primary artist for, creating assets
+            June, 2021. I am the sole programmer and primary artist, creating assets
             such as character designs and animations. While this project is in early
             development, I've learned a lot from the process and am excited about future
             development.
