@@ -167,7 +167,7 @@ const Word = ({
 
   // Render
   return (
-    <div>
+    <div style={{ position: 'absolute', top: 0, left: 0}}>
       {puzzleWord.letters.map((letter, i) => (
         <Cell
           isWordSelected={isSelected}
@@ -175,6 +175,7 @@ const Word = ({
           isWordRight={isWordRight}
           isWordWrong={isWordWrong}
           letter={letter}
+          isVertical={puzzleWord.isVertical}
           value={guessedLetters[i]}
           handleClick={onClickCell}
           handleEnterLetter={onEnterLetter}

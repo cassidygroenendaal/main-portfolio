@@ -510,7 +510,7 @@ body {
   display: none;
 }
 
-.cw__cell-wrapper {
+.cw__cell-wrapper--horizontal {
   display: inline-block;
 }
 

@@ -11,10 +11,13 @@ const Puzzle = ({ puzzleWords, selectedWord, setSelectedWord }) => {
     setSelectedWord(-1);
   };
 
+  console.log('Puzzle Words in Puzzle:', puzzleWords);
+
   return (
-    <div>
+    <div style={{ position: 'relative', backgroundColor: 'pink', height: '200px'}}>
       {puzzleWords.map((puzzleWord, i) => (
         <Word
+          startY={i * 30}
           handleGuessedWordCorrectly={guessWordCorrectly}
           puzzleWord={puzzleWord}
           handleSelectWord={selectWord}

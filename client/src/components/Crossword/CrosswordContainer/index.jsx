@@ -3,9 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { Puzzle, ClueContainer } from '../';
 
 const CrosswordContainer = () => {
-  const [puzzleWords, setPuzzleWords] = useState([]);
+  const [possibleWords, setPossibleWords] = useState([]);
+  const [board, setBoard] = useState({ words: [] });
   const [puzzleTheme, setPuzzleTheme] = useState('');
   const [selectedWord, setSelectedWord] = useState(-1);
+
+  const cellSizePx = 30;
 
   const puzzleThemes = [
     'forest',
@@ -59,30 +62,57 @@ const CrosswordContainer = () => {
     const randIndex = Math.floor(Math.random() * puzzleThemes.length);
 
     setPuzzleTheme(puzzleThemes[randIndex]);
-    generateWordList({ theme: puzzleThemes[randIndex], limit: 2 });
+    generateWordList({ theme: puzzleThemes[randIndex], limit: 5 });
   };
 
   const generateWordList = async ({ theme, limit }) => {
-    let generatedWords;
-    await fetch(`https://api.datamuse.com/words?rel_trg=${theme}&md=ds`)
-      .then(res => res.json())
-      .then(data => {
-        // console.log(data);
-        generatedWords = data;
-      });
+    // let generatedWords;
+    let generatedWords = testWords;
+    // await fetch(`https://api.datamuse.com/words?rel_trg=${theme}&md=ds`)
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log(data);
+    //     generatedWords = data;
+    //   });
 
     // Filter out any duplicate words
-    const uniqueWords = testWords.filter(
-      (item, index) => testWords.findIndex(obj => obj.word === item.word) === index
+    const uniqueWords = generatedWords.filter(
+      (item, index) => generatedWords.findIndex(obj => obj.word === item.word) === index
     );
 
-    setPuzzleWords(getFinalWords(uniqueWords, limit));
+    setPossibleWords(getFinalWords(uniqueWords, limit));
   };
 
   const generateIntersections = () => {
-    if (puzzleWords.length === 0) return;
+    if (possibleWords.length === 0) return;
 
-    console.log('Generating intersections');
+    console.log('Generating intersections...');
+
+    let unusedWords = possibleWords;
+    const newBoard = {};
+    const isFirstWordVertical = Math.floor(Math.random() * 2) % 2 === 0;
+    const longToShort = possibleWords.sort((a, b) => a.word <= b.word);
+
+    unusedWords = possibleWords.filter(w => w.word !== longToShort[0].word);
+
+    newBoard.words = [
+      {
+        ...longToShort[0],
+        isVertical    : isFirstWordVertical,
+        intersections : [],
+        startY        : 0,
+        startX        : 0
+      }
+    ];
+
+    const randIndex = Math.floor(Math.random() * unusedWords.length);
+    
+
+    setBoard(newBoard);
+
+    console.log('Possible Words:', possibleWords);
+    console.log('Unused Words:', unusedWords);
+    console.log('Board Words:', newBoard.words);
   };
 
   const getFinalWords = (words, limit) => {
@@ -101,13 +131,11 @@ const CrosswordContainer = () => {
 
       // If there is no definition, skip it
       if (newWord.defs === undefined) {
-        console.log('New Word Def is undefined');
         success = false;
       }
 
       // If the new word is in any way derived to/from another word, skip it
       if (finalWords.find(existingWord => existingWord.defHeadword === newWord.word)) {
-        console.log('existingWord.defHeadword === newWord.word');
         success = false;
       }
 
@@ -118,12 +146,10 @@ const CrosswordContainer = () => {
             existingWord.defHeadword === newWord.defHeadword
         )
       ) {
-        console.log('existingWord.defHeadword === newWord.defHeadword');
         success = false;
       }
 
       if (finalWords.find(existingWord => existingWord.word === newWord.defHeadword)) {
-        console.log('existingWord.word === newWord.defHeadword');
         success = false;
       }
 
@@ -188,21 +214,21 @@ const CrosswordContainer = () => {
   useEffect(
     () => generateIntersections(),
     // eslint-disable-next-line
-    [puzzleWords]
+    [possibleWords]
   );
 
   return (
     <div>
       <h1>{puzzleTheme}</h1>
       <button onClick={generateCrossword}>Generate Crossword</button>
-      {puzzleWords.length > 0 && (
+      {possibleWords.length > 0 && (
         <div>
           <Puzzle
-            puzzleWords={puzzleWords}
+            puzzleWords={board.words}
             selectedWord={selectedWord}
             setSelectedWord={setSelectedWord}
           />
-          <ClueContainer puzzleWords={puzzleWords} selectedClue={selectedWord} />
+          <ClueContainer puzzleWords={board.words} selectedClue={selectedWord} />
         </div>
       )}
     </div>

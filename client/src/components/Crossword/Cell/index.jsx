@@ -8,6 +8,7 @@ const Cell = ({
   isSelected,
   isWordRight,
   isWordWrong,
+  isVertical,
   handleClick,
   handleEnterLetter,
   handleDelete,
@@ -15,7 +16,7 @@ const Cell = ({
 }) => {
   const [isFilledIn, setIsFilledIn] = useState(false);
 
-  const isHorizontal = true;
+  // const isHorizontal = true;
   const isIntersection = false;
 
   const handleKeyDown = e => {
@@ -30,19 +31,20 @@ const Cell = ({
           handleNavigate({ cellIndex: index, shouldChangeIntersection: true });
         break;
       case 'ArrowRight':
-        if (isHorizontal) handleNavigate({ cellIndex: index });
+        if (!isVertical) handleNavigate({ cellIndex: index });
         break;
       case 'ArrowDown':
-        if (!isHorizontal) handleNavigate({ cellIndex: index });
+        if (isVertical) handleNavigate({ cellIndex: index });
         break;
       case 'ArrowLeft':
-        if (isHorizontal) handleNavigate({ cellIndex: index, isBackward: true });
+        if (!isVertical) handleNavigate({ cellIndex: index, isBackward: true });
         break;
       case 'ArrowUp':
-        if (!isHorizontal) handleNavigate({ cellIndex: index, isBackward: true });
+        if (isVertical) handleNavigate({ cellIndex: index, isBackward: true });
         break;
       default:
-        if (/^[a-zA-Z0-9]+$/.test(e.key)) handleEnterLetter(e.key.toUpperCase(), index);
+        if (/^([a-zA-Z0-9]{1})$/.test(e.key))
+          handleEnterLetter(e.key.toUpperCase(), index);
     }
   };
 
@@ -73,7 +75,7 @@ const Cell = ({
     : isWordSelected ? 'cw__word--selected--wrong' : '';
 
   return (
-    <div className='cw__cell-wrapper'>
+    <div className={`${isVertical ? '' : 'cw__cell-wrapper--horizontal'}`}>
       {isFilledIn ? (
         <span className='cw__cell--filled'>{letter.character}</span>
       ) : (
