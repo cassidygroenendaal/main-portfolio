@@ -101,7 +101,7 @@ const PortfolioContent = ({ onCloseClick }) => {
             <ul className='port-content__list-tools'>
               <li>C#</li>
               <li>Unity</li>
-              <li>Aseprite (ES6)</li>
+              <li>Aseprite</li>
             </ul>
           </div>
         </PortInfo>
