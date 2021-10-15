@@ -44,6 +44,7 @@ const PortfolioInfo = ({
         <div className='port-content__img-container--array'>
           {imgURLs.map(img => (
             <div
+              key={img.url}
               className='port-content__img-container port-content__img--array'
               style={{ flexBasis: img.flexBasis ? `${img.flexBasis}em` : 'auto' }}
             >

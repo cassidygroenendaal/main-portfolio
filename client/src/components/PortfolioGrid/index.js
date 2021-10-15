@@ -8,19 +8,19 @@ const PortfolioGrid = ({ onTileClick }) => {
       <PortTile
         title='Bank of America'
         projectNum={1}
-        imgURL='/images/project-thumbs/RTDJ.png'
+        imgURL='/images/project-thumbs/bank-of-america.jpg'
         onClick={onTileClick}
       />
       <PortTile
-        title='Unity/C# Game Development'
+        title='Game Development'
         projectNum={2}
-        imgURL='/images/project-thumbs/RTDJ.png'
+        imgURL='/images/project-thumbs/wdg-clip.gif'
         onClick={onTileClick}
       />
       <PortTile
-        title='Road Trip DJ'
+        title='Pop Star Runner'
         projectNum={3}
-        imgURL='/images/project-thumbs/RTDJ.png'
+        imgURL='/images/project-thumbs/pop-star-runner-1.png'
         onClick={onTileClick}
       />
       <PortTile
@@ -30,9 +30,9 @@ const PortfolioGrid = ({ onTileClick }) => {
         onClick={onTileClick}
       />
       <PortTile
-        title='Beacon'
+        title='Road Trip DJ'
         projectNum={5}
-        imgURL='/images/project-thumbs/Beacon.png'
+        imgURL='/images/project-thumbs/RTDJ.png'
         onClick={onTileClick}
       />
       <PortTile
