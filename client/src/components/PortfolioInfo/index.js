@@ -1,33 +1,61 @@
-import React from "react";
+import React from 'react';
 
-function PortfolioInfo(props) {
+const PortfolioInfo = ({
+  children,
+  title,
+  imgURL,
+  imgURLs = [],
+  projectNum,
+  siteURL,
+  repoURL
+}) => {
   return (
-    <article data-project={props.projectNum} className="port-content__item">
-      <h4 className="port-content__title">{props.title}</h4>
-      <div className="button-group d-block mb-4">
-        {props.siteURL ? (
+    <article data-project={projectNum} className='port-content__item'>
+      <h4 className='port-content__title'>{title}</h4>
+      <div className='button-group d-block mb-4'>
+        {siteURL && (
           <a
-            className="btn btn-outline-primary"
-            href={props.siteURL}
-            target="_blank"
-            rel="noopener noreferrer"
+            className='btn btn-outline-primary'
+            href={siteURL}
+            target='_blank'
+            rel='noopener noreferrer'
           >
             Website
           </a>
-        ) : null}
-        <a
-          className="btn btn-outline-success ml-2"
-          href={props.repoURL}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Code
-        </a>
+        )}
+        {repoURL && (
+          <a
+            className='btn btn-outline-success ml-2'
+            href={repoURL}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Code
+          </a>
+        )}
       </div>
-      <img className="port-content__img" src={props.imgURL} alt={props.title}/>
-      {props.children}
+      {imgURL &&
+      !imgURLs.length > 0 && (
+        <div className='port-content__img-container'>
+          <img className='port-content__img' src={imgURL} alt={title} />
+        </div>
+      )}
+      {imgURLs.length > 0 && (
+        <div className='port-content__img-container--array'>
+          {imgURLs.map(img => (
+            <div
+              key={img.url}
+              className='port-content__img-container port-content__img--array'
+              style={{ flexBasis: img.flexBasis ? `${img.flexBasis}em` : 'auto' }}
+            >
+              <img className='port-content__img' src={img.url} alt={img.url} />
+            </div>
+          ))}
+        </div>
+      )}
+      {children}
     </article>
   );
-}
+};
 
 export default PortfolioInfo;
