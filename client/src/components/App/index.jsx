@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 // import API from '../../lib/API';
 // import Navigation from '../../components/Navigation';
-import { HomePage, CrosswordPage, NotFoundPage } from '../../pages';
+import { HomePage, NotFoundPage } from '../../pages';
 
 import './styles.css';
 
@@ -20,7 +20,7 @@ const App = () => {
       {/* <Navigation /> */}
       <Switch>
         <Route exact path='/' component={HomePage} />
-        <Route exact path='/p/Crossword' component={CrosswordPage} />
+        {/* <Route exact path='/p/Crossword' component={CrosswordPage} /> */}
         <Route component={NotFoundPage} />
       </Switch>
     </div>
