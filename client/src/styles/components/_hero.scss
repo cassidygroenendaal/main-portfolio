@@ -1,0 +1,118 @@
+.hero {
+  background: #2e2e2e;
+  height: 100vh;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero__chevron {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  font-size: 2.4rem;
+  transform: translateX(-50%);
+  animation: chevron-bounce infinite 1.5s linear;
+}
+
+@keyframes chevron-bounce {
+  0% {
+    transform: translateY(4px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(4px);
+  }
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+.hero__contents--green {
+  color: #9ef74a;
+}
+
+.hero__contents--purple {
+  color: #b84af7;
+}
+
+.hero__contents--blue {
+  color: #4ad5f7;
+}
+
+/* Mouse Trail */
+.line {
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  width: 2px;
+  height: 50px;
+  background: gray;
+  animation: implode 1s ease-in-out;
+  animation-fill-mode: both;
+  opacity: .5;
+}
+
+.line--green {
+  background: #9ef74a;
+}
+
+.line--purple {
+  background: #b84af7;
+}
+
+.line--blue {
+  background: #4ad5f7;
+}
+
+.ball {
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: gray;
+  animation-name: implode;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  opacity: .5;
+}
+
+.ball--green {
+  background: #9ef74a;
+}
+
+.ball--purple {
+  background: #b84af7;
+}
+
+.ball--blue {
+  background: #4ad5f7;
+}
+
+.ball--outline-green {
+  background: none;
+  border: 2px solid #9ef74a;
+}
+
+.ball--outline-purple {
+  background: none;
+  border: 2px solid #b84af7;
+}
+
+.ball--outline-blue {
+  background: none;
+  border: 2px solid #4ad5f7;
+}
+
+@keyframes implode {
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}

@@ -44,7 +44,7 @@ body {
 }
 
 /********      Hero      ********/
-.hero {
+/* .hero {
   background: #2e2e2e;
   height: 100vh;
   color: #fff;
@@ -59,9 +59,9 @@ body {
   font-size: 2.4rem;
   transform: translateX(-50%);
   animation: chevron-bounce infinite 1.5s linear;
-}
+} */
 
-@keyframes chevron-bounce {
+/* @keyframes chevron-bounce {
   0% {
     transform: translateY(4px);
   }
@@ -88,10 +88,10 @@ body {
 
 .hero__contents--blue {
   color: #4ad5f7;
-}
+} */
 
 /* Mouse Trail */
-.line {
+/* .line {
   pointer-events: none;
   position: absolute;
   z-index: 1;
@@ -123,14 +123,14 @@ body {
   height: 10px;
   border-radius: 50%;
   background: gray;
-  /* animation: implode 1s ease-in-out; */
+  animation: implode 1s ease-in-out;
   animation-name: implode;
   animation-timing-function: ease-in-out;
   animation-fill-mode: both;
   opacity: .5;
-}
+} */
 
-.ball--green {
+/* .ball--green {
   background: #9ef74a;
 }
 
@@ -162,7 +162,7 @@ body {
     transform: scale(0);
     opacity: 0;
   }
-}
+} */
 
 /******** Portfolio Grid ********/
 .portfolio {

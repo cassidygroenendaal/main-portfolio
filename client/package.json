@@ -14,6 +14,9 @@
     "react-scripts": "^5.0.1"
   },
   "scripts": {
+    "start:sass": "yarn run watch-scss",
+    "start:dev": "yarn run watch-scss && yarn start",
+    "watch-scss": "node-sass -w src\\styles -o src --output-style compressed",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -27,5 +30,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "node-sass": "^8.0.0"
+  }
 }
